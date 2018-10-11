@@ -1,0 +1,13 @@
+{
+  "sharing": {
+    "title": "donatefornetneutrality.com",
+    "description": "A Fight for the Future website",
+    "image": "https://www.donatefornetneutrality.com/share.jpg",
+    "defaultTweetText": "",
+    "url": "https://www.donatefornetneutrality.com"
+  },
+  "googleAnalyticsId": "",
+  "actionNetworkPetitionId": "",
+  "donateUrl": "https://donate.fightforthefuture.org/",
+  "letterText": "Dear Legislators,\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo. Integer faucibus, tellus ac faucibus luctus, sapien diam ultricies elit, vel eleifend quam orci et lorem.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo. Integer faucibus, tellus ac faucibus luctus sapien.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo.\n\nSincerely,\n\n[Your Name Here]"
+}
