@@ -23,7 +23,7 @@
     display: block;
     height: 6px;
     width: 18px;
-    background-color: $brand-color;
+    background-color: $gradient-purple;
     border-radius: 3px;
   }
 

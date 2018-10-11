@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c10 grid-center">
             <LoaderLogo/>
-            <h1 class="sml-push-y2">
+            <h1 class="sml-push-y2 med-push-y3">
               This is our last best chance to save net neutrality
             </h1>
           </div> <!-- .c -->
