@@ -1,40 +1,37 @@
 <template>
   <div>
-    <section class="sml-pad-y3 med-pad-y6">
+    <section class="sml-pad-y3 med-pad-y6 fill-top">
       <div class="wrapper">
-        <div class="row">
-          <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h1>Your title goes here</h1>
+        <div class="row text-center">
+          <div class="sml-c12 lrg-c10 grid-center">
+            <h1>This is our last best chance to save net neutrality</h1>
+          </div> <!-- .c -->
+          <div class="sml-c12 lrg-c8 grid-center">
             <p class="sml-push-y2 med-push-y3">
-              Sub heading goes here, lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. In nibh libero, venenatis sed justo eu,
-              sollicitudin sollicitudin nisi. Integer semper tortor orci,
-              id ultricies velit laoreet in. Vestibulum sit amet ante vel risus
-              ornare ultrices sed id leo.
+              Time is running out to get Congress to overrule the FCC and
+              restore net neutrality. We have a plan to turn up the pressure
+              on key lawmakers, and with the clock ticking a team of Internet
+              defenders are prepared to match your donation to make it possible.
             </p>
-            <a class="btn btn-block sml-push-y2 med-push-y3" href="#TODO">
-              Call to action
+            <a class="btn btn-block sml-push-y2 med-push-y3"
+               @click.prevent="scrollTo('#donate')">
+              Donate
             </a>
 
             <ul class="hoz sml-push-y2 med-push-y3">
               <li>
-                <a @click.prevent="scrollTo('#sign')">
-                  Sign the petition
+                <a @click.prevent="scrollTo('#plan')">
+                  The Plan
                 </a>
               </li>
               <li>
-                <a @click.prevent="scrollTo('#letter')">
-                  Read the Letter
+                <a @click.prevent="scrollTo('#defenders')">
+                  The Defenders
                 </a>
               </li>
               <li>
-                <a @click.prevent="scrollTo('#print')">
-                  Print the Letter
-                </a>
-              </li>
-              <li>
-                <a @click.prevent="scrollTo('#quotes')">
-                  Quotes
+                <a @click.prevent="scrollTo('#join')">
+                  Join Us
                 </a>
               </li>
             </ul>
@@ -43,71 +40,54 @@
       </div> <!-- .wrapper -->
     </section>
 
-    <section id="sign" class="sml-pad-y3 med-pad-y6 fill-grey-light">
+    <section id="plan" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h2>Sign the petition</h2>
-            <ActionNetworkForm/>
+            <h2>The Plan</h2>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
     </section>
 
-    <section id="letter" class="sml-pad-y3 med-pad-y6">
-      <div class="wrapper">
-        <div class="row">
-          <div class="sml-c12 lrg-c8 grid-center">
-            <ReadTheLetter/>
-          </div> <!-- .c -->
-        </div> <!-- .row -->
-      </div> <!-- .wrapper -->
-    </section>
-
-
-    <section id="print" class="sml-pad-y3 med-pad-y6 fill-grey-light">
+    <section id="defenders" class="sml-pad-y3 med-pad-y6">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <PrintTheLetter/>
+            <h2>The Defenders</h2>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
     </section>
 
-    <section id="quotes" class="sml-pad-y3 med-pad-y6">
+
+    <section id="join" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h2>Quotes</h2>
-            <QuoteScroller class="sml-push-y2 med-push-y3" />
+            <h2>Join Us</h2>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
     </section>
 
-    <SocialSidebar />
+    <section id="donate" class="sml-pad-y3 med-pad-y6">
+      <div class="wrapper">
+        <div class="row">
+          <div class="sml-c12 lrg-c8 grid-center text-center">
+            <h2>Donate</h2>
+          </div> <!-- .c -->
+        </div> <!-- .row -->
+      </div> <!-- .wrapper -->
+    </section>
   </div>
 </template>
 
 <script>
 import config from '~/config'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
-import ActionNetworkForm from '~/components/ActionNetworkForm'
-import QuoteScroller from '~/components/QuoteScroller'
-import ReadTheLetter from '~/components/ReadTheLetter'
-import PrintTheLetter from '~/components/PrintTheLetter'
-import SocialSidebar from '~/components/SocialSidebar'
 
 export default {
-  components: {
-    ActionNetworkForm,
-    QuoteScroller,
-    ReadTheLetter,
-    PrintTheLetter,
-    SocialSidebar
-  },
-
   head() {
     return {
       title: config.sharing.title,

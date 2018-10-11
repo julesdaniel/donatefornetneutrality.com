@@ -1,21 +1,59 @@
 /// Buttons
 
+// Button > Animation
+// NOTE: this mixin is a workaround because CSS animations can't be restarted
+$step: 6%;
+@mixin button-gradient-animation {
+  @for $i from 0 through 10 {
+    #{$i*10%} {
+      background: linear-gradient(
+        #{106 - ($i*6)}deg,
+        #{$gradient-light-blue} 0%,
+        #{$gradient-blue} #{$i*$step},
+        #{$gradient-purple} #{$i*$step + 29%},
+        #{$gradient-light-orange} #{$i*$step + 79%},
+        #{$gradient-orange} 100%
+      );
+    }
+  }
+}
+
+@keyframes cta-hover {
+  @include button-gradient-animation;
+}
+@keyframes cta-mouseout {
+  @include button-gradient-animation;
+}
+
 // Button > Default
 .btn {
-  // TODO: update style
   display: inline-block;
-  padding: $gutter/2 $gutter*2 ($gutter/2 + 2);
+  padding: $gutter $gutter*2;
   overflow: hidden;
-  background: $brand-color;
+  animation: cta-mouseout .2s;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+  background-color: $gradient-orange;
+  background: linear-gradient(
+    106deg,
+    $gradient-blue 0%,
+    $gradient-purple 29%,
+    $gradient-light-orange 79%,
+    $gradient-orange 100%
+  );
   border: none;
   border-radius: $default-border-radius;
   color: $white;
   cursor: pointer;
-  font-size:  $font-size-2;
+  font-family: $heading-stack;
+  font-size:  $font-size-3;
   font-weight: $bold-font-weight;
+  letter-spacing: 3px;
   outline: none;
   text-align: center;
   text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
     -moz-user-select:    none;
     -webkit-user-select: none;
   user-select:           none;
@@ -28,8 +66,12 @@
 }
 .btn:hover,
 .btn:focus {
-  background: $brand-dark-color;
+  animation: cta-hover .2s;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  background-color: $gradient-light-orange;
   border: none;
+  color: $white;
 }
 button.btn {
   vertical-align: top;
