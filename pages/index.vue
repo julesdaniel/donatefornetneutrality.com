@@ -97,6 +97,14 @@
                   Organize in-district actions and events
                 </span>
               </h4>
+              <p class="sml-push-y2">
+                We&rsquo;ll organize meetings with candidates who are willing to
+                engage with us, and we&rsquo;ll protest candidates who refuse to
+                listen to their constituents. We&rsquo;ll mail postcards, put up
+                lawn signs, and send mass text messages to ensure that voters in
+                these key districts know who supports net neutrality ahead of
+                election day.
+              </p>
             </div> <!-- fill -->
           </div> <!-- .c -->
         </div> <!-- .row -->
