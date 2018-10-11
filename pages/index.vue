@@ -47,7 +47,7 @@
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h2 class="section-title">Here&rsquo;s the Plan</h2>
+            <h2 class="section-title">Here&rsquo;s the plan</h2>
             <p class="sml-push-y2 med-push-y3">
               The FCC killed net neutrality, giving companies like Comcast and
               Verizon the power to control what we see and do online with
@@ -115,18 +115,33 @@
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h2 class="section-title">The Defenders</h2>
+            <h2 class="section-title">
+              These internet champions will match your donation
+            </h2>
+            <p class="sml-push-y2 med-push-y3">
+              These folks have been on the front lines defending net neutrality
+              and fighting for an Internet full of free expression, information,
+              and creativity. Together, they&rsquo;re committing to match
+              donations from Internet users.
+            </p>
+            <p>TODO: logo cloud</p>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
     </section>
 
-
     <section id="join" class="sml-pad-y3 med-pad-y6">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h2 class="section-title">Join Us</h2>
+            <h2 class="section-title">Join us in matching donations</h2>
+            <p class="sml-push-y2 med-push-y3">
+              If you represent an organization that would like to help preserv
+              a free and open internet by matching donations for this campaign,
+              please fill out the form below and press &rdquo;JOIN US.&rdquo;
+              We&rsquo;ll get back to you as soon as possible.
+            </p>
+            <p>TODO: form</p>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
