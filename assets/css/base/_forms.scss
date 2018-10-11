@@ -26,6 +26,7 @@ form textarea {
   background: $white;
   border: 1px solid $grey-light-color;
   border-radius: $default-border-radius;
+  color: $grey-dark-color;
   -webkit-appearance: none;
 }
 form textarea {
@@ -39,7 +40,7 @@ form input[type=password]:focus,
 form input[type=number]:focus,
 form input[type=tel]:focus,
 form textarea:focus {
-  border-color: $text-color;
+  border-color: $brand-color;
   border-width: 1px;
 }
 
@@ -72,6 +73,7 @@ form textarea.error:focus{
 // Form > Selects
 select {
   width: 100%;
+  color: $grey-dark-color;
 }
 
 // Forms > Checkboxes & Radios

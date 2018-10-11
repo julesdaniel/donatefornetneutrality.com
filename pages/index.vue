@@ -141,7 +141,7 @@
               please fill out the form below and press &rdquo;JOIN US.&rdquo;
               We&rsquo;ll get back to you as soon as possible.
             </p>
-            <p>TODO: form</p>
+            <DonationMatchingForm/>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
@@ -186,11 +186,13 @@ import config from '~/config'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
 import LoaderLogo from '~/components/LoaderLogo'
 import QuoteScroller from '~/components/QuoteScroller'
+import DonationMatchingForm from '~/components/DonationMatchingForm'
 
 export default {
   components: {
     LoaderLogo,
-    QuoteScroller
+    QuoteScroller,
+    DonationMatchingForm
   },
 
   head() {
