@@ -174,6 +174,7 @@
             <h2 class="section-title">
               Donate now to save net neutrality
             </h2>
+            <StripeDonationForm/>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
@@ -187,12 +188,14 @@ import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
 import LoaderLogo from '~/components/LoaderLogo'
 import QuoteScroller from '~/components/QuoteScroller'
 import DonationMatchingForm from '~/components/DonationMatchingForm'
+import StripeDonationForm from '~/components/StripeDonationForm'
 
 export default {
   components: {
     LoaderLogo,
     QuoteScroller,
-    DonationMatchingForm
+    DonationMatchingForm,
+    StripeDonationForm
   },
 
   head() {

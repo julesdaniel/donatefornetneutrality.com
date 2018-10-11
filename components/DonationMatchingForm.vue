@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-if="hasSubmitted" class="text-center sml-push-y2 med-push-y3">
-      <p>
+      <h4 class="text-success">
         Thanks for starting the process to become an internet champion!
-      </p>
+      </h4>
     </div> <!-- v-if -->
     <form @submit.prevent="submitForm()" v-if="!hasSubmitted"
           class="sml-push-y2 med-push-y3">

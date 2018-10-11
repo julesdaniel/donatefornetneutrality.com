@@ -27,6 +27,12 @@ module.exports = {
   */
   loading: { color: '#26AFFF' },
   /*
+  ** Environment configuration
+  */
+  env: {
+    stripeApiKey: process.env.STRIPE_API_KEY || 'TEST_STRIPE_API_KEY'
+  },
+  /*
   ** Router configuration
   */
   router: {

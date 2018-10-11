@@ -87,6 +87,13 @@ button.btn {
   width: 100%;
 }
 
+// Buttons > Small
+.btn.btn-sml {
+  padding: ($gutter + 1) $gutter;
+  font-size: $font-size-4;
+  letter-spacing: 0;
+}
+
 // Buttons > Disabled
 .btn:disabled,
 .btn[disabled],
@@ -100,7 +107,8 @@ button.btn {
 
 // Buttons > Sharing
 .btn.btn-twitter {
-  background-color: $twitter-color;
+  animation: none;
+  background: $twitter-color;
 }
 .btn.btn-twitter:hover,
 .btn.btn-twitter:focus {
@@ -108,7 +116,8 @@ button.btn {
   color: $white;
 }
 .btn.btn-facebook {
-  background-color: $facebook-color;
+  animation: none;
+  background: $facebook-color;
 }
 .btn.btn-facebook:hover,
 .btn.btn-facebook:focus {

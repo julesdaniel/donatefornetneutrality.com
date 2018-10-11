@@ -5,15 +5,15 @@
 // Colors
 $white:              #FFF;
 $black:              #000;
-$grey-light-color:   #515e77;
-$grey-color:         #574b74;
+$grey-light-color:   #515E77; // medium/light purple
+$grey-color:         #574b74; // medium purple
 $grey-dark-color:    #201B2C; // dark purple
 $brand-color:        #26AFFF; // bright blue
 $brand-dark-color:   darken($brand-color, 10%);
 $background-color:   #171629; // darkest purple
 $text-color:         $white;
-$success-color:      green; // TODO
-$warn-color:         red; // TODO
+$success-color:      #39C0A7; // green
+$warn-color:         #FF4A4A; // red
 
 $facebook-color:          #405993;
 $facebook-dark-color:     darken($facebook-color, 10%);
