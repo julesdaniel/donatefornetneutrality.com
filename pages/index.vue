@@ -4,7 +4,10 @@
       <div class="wrapper">
         <div class="row text-center">
           <div class="sml-c12 lrg-c10 grid-center">
-            <h1>This is our last best chance to save net neutrality</h1>
+            <LoaderLogo/>
+            <h1 class="sml-push-y2">
+              This is our last best chance to save net neutrality
+            </h1>
           </div> <!-- .c -->
           <div class="sml-c12 lrg-c8 grid-center">
             <p class="sml-push-y2 med-push-y3">
@@ -86,8 +89,13 @@
 <script>
 import config from '~/config'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
+import LoaderLogo from '~/components/LoaderLogo'
 
 export default {
+  components: {
+    LoaderLogo
+  },
+
   head() {
     return {
       title: config.sharing.title,
