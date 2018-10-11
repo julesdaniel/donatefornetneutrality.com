@@ -147,11 +147,33 @@
       </div> <!-- .wrapper -->
     </section>
 
-    <section id="donate" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
+    <section id="quotes" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
-            <h2 class="section-title">Donate</h2>
+            <h2 class="section-title">
+              Don&rsquo;t take our word for it
+            </h2>
+            <p class="sml-push-y2 med-push-y3">
+              The loss of net neutrality has already begun to have a real-world
+              impact on the lives of people across America. Businesses have
+              suffered. Veterans have been ignored. And first responders have
+              had their safety put at risk in the absence of a free and open
+              internet. Here&rsquo;s what some of them have to say:
+            </p>
+            <QuoteScroller class="sml-push-y2"/>
+          </div> <!-- .c -->
+        </div> <!-- .row -->
+      </div> <!-- .wrapper -->
+    </section>
+
+    <section id="donate" class="sml-pad-y3 med-pad-y6">
+      <div class="wrapper">
+        <div class="row">
+          <div class="sml-c12 lrg-c8 grid-center text-center">
+            <h2 class="section-title">
+              Donate now to save net neutrality
+            </h2>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
@@ -163,10 +185,12 @@
 import config from '~/config'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
 import LoaderLogo from '~/components/LoaderLogo'
+import QuoteScroller from '~/components/QuoteScroller'
 
 export default {
   components: {
-    LoaderLogo
+    LoaderLogo,
+    QuoteScroller
   },
 
   head() {
