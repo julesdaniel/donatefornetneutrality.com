@@ -41,6 +41,12 @@ h4 {
     font-size: $font-size-4;
   }
 }
+.section-title {
+  padding-bottom: $gutter*2;
+  background: transparent url('~/assets/images/title-gradient.png') bottom center no-repeat;
+  background-repeat: no-repeat;
+  background-size: $gutter*15 auto;
+}
 
 // Typography > Text
 p {
