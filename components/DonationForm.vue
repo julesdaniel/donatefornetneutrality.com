@@ -193,29 +193,34 @@ export default {
     },
 
     setupStripePaymentRequest() {
-      let self = this,
-          paymentRequest = stripe.paymentRequest({
-            country: 'US',
-            currency: 'usd',
-            total: {
-              label: 'Donate for Net Neutrality',
-              amount: this.amount*100, // NOTE: x 100, required for Google and Apple pay
-            },
-            requestPayerName: false,
-            requestPayerEmail: true,
-          })
-
-      paymentRequestBtn = elements.create('paymentRequestButton', {
-        paymentRequest: paymentRequest,
+      let self = this
+      paymentRequest = stripe.paymentRequest({
+        country: 'US',
+        currency: 'usd',
+        total: {
+          label: 'Donate for Net Neutrality',
+          amount: this.amount*100, // NOTE: x 100, required for Google and Apple pay
+        },
+        requestPayerName: false,
+        requestPayerEmail: true
       })
 
-      paymentRequest.canMakePayment().then(function(result) {
-        if (result) {
-          paymentRequestBtn.mount(self.$refs.paymentRequestBtn);
-        } else {
-          console.log('payment request API not available')
-        }
-      })
+      if (paymentRequestBtn) {
+        // FIXME: find out what format Stripe wants
+        paymentRequestBtn.update({ paymentRequest: paymentRequest })
+      } else {
+        paymentRequestBtn = elements.create('paymentRequestButton', {
+          paymentRequest: paymentRequest,
+        })
+
+        paymentRequest.canMakePayment().then(function(result) {
+          if (result) {
+            paymentRequestBtn.mount(self.$refs.paymentRequestBtn);
+          } else {
+            console.log('payment request API not available')
+          }
+        })
+      }
     },
 
     setAmount() {
