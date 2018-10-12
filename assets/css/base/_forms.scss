@@ -109,9 +109,12 @@ form .radio label {
 }
 .faux-btn label {
   position: relative;
-  padding: 6px $gutter*3 7px;
+  padding: ($gutter + 1) $gutter ($gutter + 2);
   border: 1px solid $text-color;
+  border-radius: $default-border-radius;
   color: $text-color;
+  font-family: $heading-stack;
+  font-weight: $heading-bold-weight;
   text-align: center;
 }
 .faux-btn label:hover,
@@ -121,7 +124,23 @@ form .radio label {
 .faux-btn input[type=checkbox]:checked ~ label,
 .faux-btn input[type=checkbox]:checked ~ label,
 .faux-btn input[type=radio]:checked ~ label,
-.faux-btn input[type=radio]:checked ~ label {
+.faux-btn input[type=radio]:checked ~ label,
+.faux-btn label.faux-selected {
   background-color: $brand-color;
+  border-color: $brand-color;
   color: $white;
+}
+
+// Forms > Checkboxes & Radios > Faux Button > Text or Number input in a radio
+.faux-btn label.with-input {
+  padding: $gutter/2 $gutter $gutter/2;
+}
+.faux-btn label.with-input span + input {
+  margin-left: $gutter/2;
+}
+.faux-btn label.with-input input[type=text],
+.faux-btn label.with-input input[type=number] {
+  display: inline-block;
+  max-width: 80%;
+  padding: $gutter/2 $gutter*2 $gutter/2;
 }

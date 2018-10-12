@@ -178,7 +178,7 @@
             <h2 class="section-title">
               Donate now to save net neutrality
             </h2>
-            <StripeDonationForm/>
+            <DonationForm/>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
@@ -193,7 +193,7 @@ import LoaderLogo from '~/components/LoaderLogo'
 import ProgressBar from '~/components/ProgressBar'
 import QuoteScroller from '~/components/QuoteScroller'
 import DonationMatchingForm from '~/components/DonationMatchingForm'
-import StripeDonationForm from '~/components/StripeDonationForm'
+import DonationForm from '~/components/DonationForm'
 
 export default {
   components: {
@@ -201,7 +201,7 @@ export default {
     ProgressBar,
     QuoteScroller,
     DonationMatchingForm,
-    StripeDonationForm
+    DonationForm
   },
 
   head() {
