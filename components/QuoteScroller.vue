@@ -18,7 +18,7 @@
   }
 
   @include respond-to(lrg) {
-    min-height: 230px;
+    min-height: 250px;
   }
 }
 
