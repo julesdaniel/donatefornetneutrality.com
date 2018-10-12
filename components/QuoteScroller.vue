@@ -11,14 +11,14 @@
 // Quotes
 .quotes-wrapper {
   // NOTE: Magic numbers. Update them based on the height of the longest quote.
-  min-height: 300px;
+  min-height: 600px;
 
   @include respond-to(med) {
-    min-height: 281px;
+    min-height: 375px;
   }
 
   @include respond-to(lrg) {
-    min-height: 217px;
+    min-height: 250px;
   }
 }
 
@@ -28,7 +28,8 @@
   flex: 0 0 30px;
   height:   30px;
   width:    30px;
-  background: $brand-color;
+  background: $grey-color;
+  border: none;
   color: $white;
   border-radius: 100%;
   cursor: pointer;
@@ -60,8 +61,19 @@
     </a>
     <transition name="fade" mode="out-in">
       <div :key="`slide-${activeSlide}`">
-        <blockquote>{{ quotes[activeSlide].text }}</blockquote>
-        <p class="text-brand">{{ quotes[activeSlide].source }}</p>
+        <blockquote>&ldquo;{{ quotes[activeSlide].text }}&rdquo;</blockquote>
+        <p class="text-brand">
+          <strong>— {{ quotes[activeSlide].source }}</strong>&nbsp;
+          <a v-if="quotes[activeSlide].link === 'vets'"
+             href="https://www.vetsforthe.net/"
+             target="_blank">from Vets for the Net</a>
+          <a v-if="quotes[activeSlide].link === 'fr'"
+             href="https://www.firstrespondersfornetneutrality.com/"
+             target="_blank">from First Responders for Net Neutrality</a>
+          <a v-if="quotes[activeSlide].link === 'biz'"
+             href="https://www.businessesfornetneutrality.com/"
+             target="_blank">from Businesses for Net Neutrality</a>
+        </p>
       </div>
     </transition>
     <a class="arrow" @click.prevent="next">

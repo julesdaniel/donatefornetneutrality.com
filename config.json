@@ -1,13 +1,15 @@
 {
   "sharing": {
-    "title": "donatefornetneutrality.com",
-    "description": "A Fight for the Future website",
+    "title": "Donate for Net Neutrality.com",
+    "description": "This is our last best chance to save net neutrality. Here's why...",
     "image": "https://www.donatefornetneutrality.com/share.jpg",
-    "defaultTweetText": "",
+    "defaultTweetText": "This is our last best chance to save net neutrality. Donate now to make an impact.",
     "url": "https://www.donatefornetneutrality.com"
   },
   "googleAnalyticsId": "",
   "actionNetworkPetitionId": "",
   "donateUrl": "https://donate.fightforthefuture.org/",
+  "currentAmountDonated": 20000,
+  "donationGoal": 50000,
   "letterText": "Dear Legislators,\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo. Integer faucibus, tellus ac faucibus luctus, sapien diam ultricies elit, vel eleifend quam orci et lorem.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo. Integer faucibus, tellus ac faucibus luctus sapien.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo.\n\nSincerely,\n\n[Your Name Here]"
 }

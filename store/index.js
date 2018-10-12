@@ -7,6 +7,8 @@ const createStore = () => {
       anPetitionId: config.actionNetworkPetitionId,
       donateUrl: config.donateUrl,
       letterText: config.letterText,
+      currentAmountDonated: config.currentAmountDonated,
+      donationGoal: config.donationGoal,
       modalVisible: false,
       modalType: null
     },
