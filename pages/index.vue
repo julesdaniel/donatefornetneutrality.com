@@ -80,7 +80,7 @@
             <div class="fill-grey-dark with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
                 <!-- TODO: replace icon -->
-                <img src="~/assets/images/gradient-calls.png" alt="phone"
+                <img src="~/assets/images/gradient-crowdfund.png" alt="phone"
                      class="gradient-icon" />
                 <span class="sml-pad-x2">
                   Run crowdfunded billboards, newspaper ads, and online ads
@@ -95,7 +95,7 @@
             <div class="fill-grey-dark with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
                 <!-- TODO: replace icon -->
-                <img src="~/assets/images/gradient-calls.png" alt="phone"
+                <img src="~/assets/images/gradient-action.png" alt="phone"
                      class="gradient-icon" />
                 <span class="sml-pad-x2">
                   Organize in-district actions and events
