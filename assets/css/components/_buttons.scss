@@ -34,13 +34,7 @@ $step: 6%;
   animation-fill-mode: forwards;
   animation-direction: reverse;
   background-color: $gradient-orange;
-  background: linear-gradient(
-    106deg,
-    $gradient-blue 0%,
-    $gradient-purple 29%,
-    $gradient-light-orange 79%,
-    $gradient-orange 100%
-  );
+  background: $default-gradient;
   border: none;
   border-radius: $default-border-radius;
   color: $white;

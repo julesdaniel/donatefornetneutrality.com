@@ -16,7 +16,11 @@
               on key lawmakers, and with the clock ticking a team of Internet
               defenders are prepared to match your donation to make it possible.
             </p>
-            <a class="btn btn-block sml-push-y2 med-push-y3"
+            <ProgressBar
+              :current-total="currentAmountDonated"
+              :goal-total="donationGoal"
+              class="sml-push-y2 med-push-y3"/>
+            <a class="btn btn-block sml-push-y2 med-push-y4"
                @click.prevent="scrollTo('#donate')">
               Donate
             </a>
@@ -28,8 +32,8 @@
                 </a>
               </li>
               <li>
-                <a @click.prevent="scrollTo('#defenders')">
-                  The Defenders
+                <a @click.prevent="scrollTo('#champions')">
+                  Internet Champions
                 </a>
               </li>
               <li>
@@ -111,7 +115,7 @@
       </div> <!-- .wrapper -->
     </section>
 
-    <section id="defenders" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
+    <section id="champions" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
@@ -186,6 +190,7 @@
 import config from '~/config'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
 import LoaderLogo from '~/components/LoaderLogo'
+import ProgressBar from '~/components/ProgressBar'
 import QuoteScroller from '~/components/QuoteScroller'
 import DonationMatchingForm from '~/components/DonationMatchingForm'
 import StripeDonationForm from '~/components/StripeDonationForm'
@@ -193,6 +198,7 @@ import StripeDonationForm from '~/components/StripeDonationForm'
 export default {
   components: {
     LoaderLogo,
+    ProgressBar,
     QuoteScroller,
     DonationMatchingForm,
     StripeDonationForm
@@ -208,6 +214,11 @@ export default {
         url: config.sharing.url
       })
     }
+  },
+
+  computed: {
+    currentAmountDonated () { return this.$store.state.currentAmountDonated },
+    donationGoal () { return this.$store.state.donationGoal }
   },
 
   methods: {

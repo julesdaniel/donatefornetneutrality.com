@@ -30,6 +30,14 @@ $gradient-alt-blue: #1F5AD0;
 $gradient-alt-purple: #681CB3;
 $gradient-alt-orange: #A53B5B;
 
+$default-gradient: linear-gradient(
+  106deg,
+  $gradient-blue 0%,
+  $gradient-purple 29%,
+  $gradient-light-orange 79%,
+  $gradient-orange 100%
+);
+
 // Typography
 $base-text-align: left; // switch for rtl
 $sans-serif-stack: "Open Sans", Helvetica, Arial, sans-serif;
