@@ -23,7 +23,7 @@
                class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
             <div class="faux-btn">
               <input type="radio" :id="`option-${option}`" :value="option"
-                     v-model="tmpAmount">
+                     v-model="tmpAmount" @change="setAmount">
               <label :for="`option-${option}`">${{ option }}</label>
             </div> <!-- .faux-btn -->
           </div> <!-- .c -->
@@ -37,7 +37,9 @@
           </div> <!-- .c -->
 
           <div class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
-            <button class="btn btn-sml btn-block">Choose</button>
+            <button class="btn btn-sml btn-block">
+              Choose
+            </button>
           </div> <!-- .c -->
         </form>
       </div>
