@@ -1,14 +1,14 @@
 <style lang="scss" scoped>
-.StripeElement {
+.stripe-cc-form .StripeElement {
   background-color: $white;
   padding: ($gutter + 4) $gutter*2 ($gutter + 5);
   border-radius: $default-border-radius;
   border: 1px solid $white;
 }
-.StripeElement--focus {
+.stripe-cc-form .StripeElement--focus {
   border-color: $brand-color;
 }
-.StripeElement--invalid {
+.stripe-cc-form .StripeElement--invalid {
   border-color: $warn-color;
 }
 </style>
@@ -62,7 +62,7 @@
           <input v-model="email" type="email" placeholder="Email*"
                  class="sml-push-y1" required>
 
-          <div ref="card" class="sml-push-y1"></div>
+          <div ref="card" class="stripe-cc-form sml-push-y1"></div>
 
           <button class="btn btn-block sml-push-y1" :disabled="isSending">
             <span v-if="isSending">
@@ -77,7 +77,7 @@
         <h4 class="sml-push-y2 med-push-y3">Or use one of these methods:</h4>
         <div class="flex-row sml-push-y1">
           <a class="btn btn-sml">Paypal</a>
-          <a class="btn btn-sml">Apple or Google Pay</a>
+          <div ref="paymentRequestBtn"></div>
         </div>
       </div> <!-- v-if amount -->
     </div> <!-- v-if hasSumbitted -->
@@ -116,7 +116,9 @@ import ShareButton from '~/components/ShareButton'
 // Create empty Stripe Elements variables
 let stripe = null,
     elements = null,
-    card = null
+    card = null,
+    paymentRequest = null,
+    paymentRequestBtn = null
 
 export default {
   components: {
@@ -151,6 +153,14 @@ export default {
     }
   },
 
+  watch: {
+    amount(newVal, oldVal) {
+      if (newVal) {
+        this.setupStripePaymentRequest()
+      }
+    }
+  },
+
   mounted() {
     this.setupStripe()
   },
@@ -162,16 +172,12 @@ export default {
       card = null
       let formStyle = {
         base: {
-          border: '1px solid #FFF',
-          background: '#FFF',
-          borderRadius: '5px',
           color: "#201B2C",
           fontSize: '16px',
           fontFamily: "'Open Sans', sans-serif",
           '::placeholder': {
             color: '#515E77',
-          },
-          padding: '10px'
+          }
         },
         invalid: {
           color: '#FF4A4A',
@@ -184,6 +190,32 @@ export default {
       // Create and mount a new Stripe CC form
       card = elements.create('card', {style: formStyle});
       card.mount(this.$refs.card);
+    },
+
+    setupStripePaymentRequest() {
+      let self = this,
+          paymentRequest = stripe.paymentRequest({
+            country: 'US',
+            currency: 'usd',
+            total: {
+              label: 'Donate for Net Neutrality',
+              amount: this.amount*100, // NOTE: x 100, required for Google and Apple pay
+            },
+            requestPayerName: false,
+            requestPayerEmail: true,
+          })
+
+      paymentRequestBtn = elements.create('paymentRequestButton', {
+        paymentRequest: paymentRequest,
+      })
+
+      paymentRequest.canMakePayment().then(function(result) {
+        if (result) {
+          paymentRequestBtn.mount(self.$refs.paymentRequestBtn);
+        } else {
+          console.log('payment request API not available')
+        }
+      })
     },
 
     setAmount() {
