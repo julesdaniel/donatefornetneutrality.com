@@ -13,14 +13,18 @@ $bar-height: $gutter*2;
   top: 0;
   bottom: 0;
   left: 0;
-  max-width: 100%;
-  background-color: $brand-color;
-  background: $default-gradient;
-  border-top-left-radius:    $bar-height;
-  border-bottom-left-radius: $bar-height;
+  max-width: 50%;
+  background: $success-color;
   text-indent: 9999em;
 }
-.progress .progress-bar.percent-100 {
+.progress .progress-bar.donations-bar {
+  border-top-left-radius:    $bar-height;
+  border-bottom-left-radius: $bar-height;
+}
+.progress .progress-bar.matched-bar {
+  background: $gradient-blue;
+}
+.progress .progress-bar.matched-bar.percent-50 {
   border-top-right-radius:    $bar-height;
   border-bottom-right-radius: $bar-height;
 }
@@ -29,13 +33,17 @@ $bar-height: $gutter*2;
 <template>
   <div>
     <div class="row">
-      <h4 class="sml-c6 text-left">{{ numToUSD(currentTotal) }} Raised</h4>
+      <h4 class="sml-c6 text-left">{{ numToUSD(currentTotal*2) }} Raised</h4>
       <h4 class="sml-c6 text-right">{{ numToUSD(goalTotal) }} Goal</h4>
     </div> <!-- .row -->
     <div class="progress">
-      <div class="progress-bar"
-           :class="[{ 'percent-100': percent >= 100 }]"
+      <div class="progress-bar donations-bar"
            :style="{width: `${percent}%`}">
+        {{ percent }}
+      </div>
+      <div class="progress-bar matched-bar"
+           :class="[{ 'percent-50': percent >= 50 }]"
+           :style="{width: `${percent}%`, left: `${percent <= 50 ? percent : 50}%`}">
         {{ percent }}
       </div>
     </div>
