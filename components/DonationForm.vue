@@ -18,25 +18,31 @@
     <div v-if="!hasSubmitted">
       <div v-show="!amount">
         <h4>Choose an amount to donate:</h4>
-        <form @submit.prevent="setAmount" class="row">
-          <div v-for="option in donationAmounts" :key="`donate-${option}`"
-               class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
-            <div class="faux-btn">
-              <input type="radio" :id="`option-${option}`" :value="option"
-                     v-model="tmpAmount" @change="setAmount">
-              <label :for="`option-${option}`">${{ option }}</label>
-            </div> <!-- .faux-btn -->
-          </div> <!-- .c -->
+        <form @submit.prevent="setAmount">
+          <div class="row">
+            <div v-for="option in donationAmounts" :key="`donate-${option}`"
+                 class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
+              <div class="faux-btn">
+                <input type="radio" :id="`option-${option}`" :value="option"
+                       v-model="tmpAmount">
+                <label :for="`option-${option}`">${{ option }}</label>
+              </div> <!-- .faux-btn -->
+            </div> <!-- .c -->
 
-          <div class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
-            <div class="faux-btn">
-              <label class="with-input" :class="{'faux-selected': isOtherAmountSelected}">
-                <span>$</span><input type="number" v-model="tmpAmount">
-              </label>
-            </div> <!-- .faux-btn -->
-          </div> <!-- .c -->
+            <div class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
+              <div class="faux-btn">
+                <label class="with-input" :class="{'faux-selected': isOtherAmountSelected}">
+                  <span>$</span><input type="number" v-model="tmpAmount">
+                </label>
+              </div> <!-- .faux-btn -->
+            </div> <!-- .c -->
+          </div> <!-- .row -->
 
-          <div class="sml-c6 med-c4 lrg-c3 sml-push-y1 med-push-y2">
+          <p class="sml-push-y1 med-push-y2" v-if="tmpAmount">
+            Your ${{tmpAmount}} donation + ${{tmpAmount}} matching donation =
+            <span class="text-success">${{tmpAmount*2}} total donation</span>
+          </p>
+          <div class="sml-push-y1 med-push-y2">
             <button class="btn btn-sml btn-block">
               Choose
             </button>
