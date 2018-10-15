@@ -1,14 +1,14 @@
 <style lang="scss" scoped>
-.stripe-cc-form .StripeElement {
+.stripe-cc-form {
   background-color: $white;
   padding: ($gutter + 4) $gutter*2 ($gutter + 5);
   border-radius: $default-border-radius;
   border: 1px solid $white;
 }
-.stripe-cc-form .StripeElement--focus {
+.StripeElement--focus {
   border-color: $brand-color;
 }
-.stripe-cc-form .StripeElement--invalid {
+.StripeElement--invalid {
   border-color: $warn-color;
 }
 </style>
