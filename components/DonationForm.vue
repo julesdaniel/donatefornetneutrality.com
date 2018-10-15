@@ -74,11 +74,13 @@
           </button>
         </form>
 
-        <h4 class="sml-push-y2 med-push-y3">Or use one of these methods:</h4>
-        <div class="flex-row sml-push-y1">
-          <a class="btn btn-sml">Paypal</a>
-          <div ref="paymentRequestBtn"></div>
-        </div>
+        <div v-if="showAltPaymentMethods">
+          <h4 class="sml-push-y2 med-push-y3">Or use one of these methods:</h4>
+          <div class="flex-row sml-push-y1">
+            <a class="btn btn-sml">Paypal</a>
+            <div ref="paymentRequestBtn"></div>
+          </div> <!-- .flex-row -->
+        </div> <!-- v-if showAltPaymentMethods -->
       </div> <!-- v-if amount -->
     </div> <!-- v-if hasSumbitted -->
 
@@ -150,11 +152,14 @@ export default {
     donationAmounts () { return this.$store.state.donationAmounts },
     isOtherAmountSelected () {
       return this.tmpAmount && !this.donationAmounts.includes(this.tmpAmount)
-    }
+    },
+    showAltPaymentMethods () { return this.$store.state.showAltPaymentMethods }
   },
 
   watch: {
     amount(newVal, oldVal) {
+      // Only show setup Apple/Google Pay if enabled in config
+      if (!this.showAltPaymentMethods) return
       if (newVal) {
         this.setupStripePaymentRequest()
       }
