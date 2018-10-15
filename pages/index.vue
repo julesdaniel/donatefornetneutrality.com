@@ -128,7 +128,8 @@
               and creativity. Together, they&rsquo;re committing to match
               donations from Internet users.
             </p>
-            <p>TODO: logo cloud</p>
+
+            <LogoCloud class="sml-push-y2 med-push-y3"/>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
@@ -194,6 +195,7 @@ import ProgressBar from '~/components/ProgressBar'
 import QuoteScroller from '~/components/QuoteScroller'
 import DonationMatchingForm from '~/components/DonationMatchingForm'
 import DonationForm from '~/components/DonationForm'
+import LogoCloud from '~/components/LogoCloud'
 
 export default {
   components: {
@@ -201,7 +203,8 @@ export default {
     ProgressBar,
     QuoteScroller,
     DonationMatchingForm,
-    DonationForm
+    DonationForm,
+    LogoCloud
   },
 
   head() {
