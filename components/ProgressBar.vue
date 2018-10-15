@@ -15,7 +15,6 @@ $bar-height: $gutter*2;
   left: 0;
   max-width: 100%;
   background-color: $brand-color;
-  background: $default-gradient;
   border-top-left-radius:    $bar-height;
   border-bottom-left-radius: $bar-height;
   text-indent: 9999em;

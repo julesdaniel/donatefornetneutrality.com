@@ -4,23 +4,24 @@
       <div class="wrapper">
         <div class="row text-center">
           <div class="sml-c12 lrg-c10 grid-center">
-            <LoaderLogo/>
-            <h1 class="sml-push-y2 med-push-y3">
+            <h1>
               This is our last best chance to save net neutrality
             </h1>
           </div> <!-- .c -->
           <div class="sml-c12 lrg-c8 grid-center">
+            <ProgressBar
+              :current-total="currentAmountDonated"
+              :goal-total="donationGoal"
+              class="sml-push-y2 med-push-y3"/>
+
             <p class="sml-push-y2 med-push-y3">
               Time is running out to get Congress to overrule the FCC and
               restore net neutrality. We have a plan to turn up the pressure
               on key lawmakers, and with the clock ticking a team of Internet
               defenders are prepared to match your donation to make it possible.
             </p>
-            <ProgressBar
-              :current-total="currentAmountDonated"
-              :goal-total="donationGoal"
-              class="sml-push-y2 med-push-y3"/>
-            <a class="btn btn-block sml-push-y2 med-push-y4"
+
+            <a class="btn sml-push-y2 med-push-y4"
                @click.prevent="scrollTo('#donate')">
               Donate
             </a>
