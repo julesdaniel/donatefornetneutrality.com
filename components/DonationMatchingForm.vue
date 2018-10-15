@@ -52,22 +52,22 @@ export default {
       if (this.isSending) return
 
       this.isSending = true
+      this.hasSubmitted = false
       this.$trackEvent('donation_matching_form', 'submit')
 
       try {
-        // TODO: Send to google sheet
         const { data } = await axios.post(
-          "https://www.example.com/",
+          "https://sheetz.fftf.xyz/sheets/1tKmDHxkmE4P8yfao28-l3hwXSTnue4P3DvQuL_sbZRg/rows",
           {
             name: this.name,
             email: this.email,
-            org: this.org,
+            organization: this.org,
             phone: this.phone ? this.phone : ''
           }
         )
         this.$trackEvent('donation_matching_form', 'success')
         this.isSending = false
-        this.hasSigned = true
+        this.hasSubmitted = true
       }
       catch (err) {
         this.isSending = false
