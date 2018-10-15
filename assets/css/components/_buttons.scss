@@ -95,8 +95,9 @@ button.btn {
 .btn[disabled]:hover,
 .btn:disabled:focus,
 .btn[disabled]:focus {
-  background: $grey-color;
+  animation: none;
   cursor: default;
+  opacity: 0.6;
 }
 
 // Buttons > Sharing

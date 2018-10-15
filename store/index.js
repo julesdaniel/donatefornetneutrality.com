@@ -9,6 +9,7 @@ const createStore = () => {
       letterText: config.letterText,
       currentAmountDonated: config.currentAmountDonated,
       donationGoal: config.donationGoal,
+      donationAmounts: config.donationAmounts,
       modalVisible: false,
       modalType: null
     },
