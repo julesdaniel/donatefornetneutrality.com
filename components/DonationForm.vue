@@ -91,7 +91,7 @@
           <h4 class="sml-push-y2 med-push-y3">Or use one of these methods:</h4>
           <div class="flex-row sml-push-y1">
             <a class="btn btn-sml">Paypal</a>
-            <div ref="paymentRequestBtn"></div>
+            <div v-show="canMakePayment" ref="paymentRequestBtn"></div>
           </div> <!-- .flex-row -->
         </div> <!-- v-if showAltPaymentMethods -->
       </div> <!-- v-if amount -->
@@ -156,6 +156,7 @@ export default {
       isSending: false,
       hasSubmitted: false,
       errorMessage: null,
+      canMakePayment: true,
       // form fields
       email: null,
       tmpAmount: null,
@@ -210,8 +211,16 @@ export default {
       card.mount(this.$refs.card)
     },
 
-    setupStripePaymentRequest() {
-      let self = this
+    async setupStripePaymentRequest() {
+      if (paymentRequest) {
+        return paymentRequest.update({
+          total: {
+            label: this.$store.state.donationDescription,
+            amount: this.stripeAmount
+          }
+        })
+      }
+
       paymentRequest = stripe.paymentRequest({
         country: 'US',
         currency: 'usd',
@@ -223,34 +232,17 @@ export default {
         requestPayerEmail: true
       })
 
-      if (paymentRequestBtn) {
-        // FIXME: find out what format Stripe wants
-        console.log('button exists')
-      } else {
-        console.log('create button')
-        paymentRequestBtn = elements.create('paymentRequestButton', {
-          paymentRequest: paymentRequest,
-        })
+      paymentRequestBtn = elements.create('paymentRequestButton', {
+        paymentRequest: paymentRequest,
+      })
 
-        paymentRequest.canMakePayment().then(function(result) {
-          if (result) {
-            paymentRequestBtn.mount(self.$refs.paymentRequestBtn);
-          } else {
-            console.log('payment request API not available')
-          }
-        })
+      const result = await paymentRequest.canMakePayment()
 
-        paymentRequestBtn.on('click', function(ev) {
-          console.log('click pay button')
-          console.log(self.stripeAmount)
-          // ev.preventDefault()
-          paymentRequest.update({
-            total: {
-              label: self.$store.state.donationDescription,
-              amount: self.stripeAmount,
-            },
-          })
-        })
+      if (result) {
+        paymentRequestBtn.mount(this.$refs.paymentRequestBtn);
+      }
+      else {
+        this.canMakePayment = false
       }
     },
 
