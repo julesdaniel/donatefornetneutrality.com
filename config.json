@@ -6,14 +6,13 @@
     "defaultTweetText": "This is our last best chance to save net neutrality. Donate now to make an impact.",
     "url": "https://www.donatefornetneutrality.com"
   },
-  "googleAnalyticsId": "",
+  "googleAnalyticsId": "UA-123898108-5",
   "actionNetworkPetitionId": "17af0377-c1b3-4cb7-8187-17417cabf7d9",
-  "donateUrl": "https://donate.fightforthefuture.org/",
   "currentAmountDonated": 10000,
   "donationGoal": 50000,
   "donationAmounts": [3, 10, 30, 50, 75, 100, 250],
   "defaultDonation": 10,
   "donationDescription": "Donation for Net Neutrality",
-  "showAltPaymentMethods": false,
-  "letterText": "Dear Legislators,\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo. Integer faucibus, tellus ac faucibus luctus, sapien diam ultricies elit, vel eleifend quam orci et lorem.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo. Integer faucibus, tellus ac faucibus luctus sapien.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat ipsum ut felis ultricies ultricies ut sed velit. Proin lobortis efficitur turpis in commodo.\n\nSincerely,\n\n[Your Name Here]"
+  "donationTags": ["net-neutrality"],
+  "showAltPaymentMethods": false
 }

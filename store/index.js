@@ -5,13 +5,12 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       anPetitionId: config.actionNetworkPetitionId,
-      donateUrl: config.donateUrl,
-      letterText: config.letterText,
       currentAmountDonated: config.currentAmountDonated,
       donationGoal: config.donationGoal,
       donationAmounts: config.donationAmounts,
       defaultDonation: config.defaultDonation,
       donationDescription: config.donationDescription,
+      donationTags: config.donationTags,
       showAltPaymentMethods: config.showAltPaymentMethods,
       modalVisible: false,
       modalType: null
