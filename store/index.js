@@ -10,6 +10,7 @@ const createStore = () => {
       currentAmountDonated: config.currentAmountDonated,
       donationGoal: config.donationGoal,
       donationAmounts: config.donationAmounts,
+      donationDescription: config.donationDescription,
       showAltPaymentMethods: config.showAltPaymentMethods,
       modalVisible: false,
       modalType: null
