@@ -44,7 +44,7 @@
           </p>
           <div class="sml-push-y1 med-push-y2">
             <button class="btn btn-sml btn-block">
-              Choose
+              Donate
             </button>
           </div> <!-- .c -->
         </form>
