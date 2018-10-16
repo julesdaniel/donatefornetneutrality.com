@@ -177,16 +177,6 @@ export default {
     }
   },
 
-  // watch: {
-  //   amount(newVal, oldVal) {
-  //     // Only show setup Apple/Google Pay if enabled in config
-  //     if (!this.showAltPaymentMethods) return
-  //     if (newVal) {
-  //       this.setupStripePaymentRequest()
-  //     }
-  //   }
-  // },
-
   mounted() {
     this.setupStripe()
     this.tmpAmount = this.defaultDonation
@@ -235,8 +225,9 @@ export default {
 
       if (paymentRequestBtn) {
         // FIXME: find out what format Stripe wants
-        paymentRequestBtn.update({ paymentRequest: paymentRequest })
+        console.log('button exists')
       } else {
+        console.log('create button')
         paymentRequestBtn = elements.create('paymentRequestButton', {
           paymentRequest: paymentRequest,
         })
@@ -248,11 +239,26 @@ export default {
             console.log('payment request API not available')
           }
         })
+
+        paymentRequestBtn.on('click', function(ev) {
+          console.log('click pay button')
+          console.log(self.stripeAmount)
+          // ev.preventDefault()
+          paymentRequest.update({
+            total: {
+              label: self.$store.state.donationDescription,
+              amount: self.stripeAmount,
+            },
+          })
+        })
       }
     },
 
     setAmount() {
       this.amount = this.tmpAmount
+      if (this.showAltPaymentMethods) {
+        this.setupStripePaymentRequest()
+      }
     },
 
     changeAmount() {

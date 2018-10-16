@@ -14,5 +14,5 @@
   "defaultDonation": 10,
   "donationDescription": "Donation for Net Neutrality",
   "donationTags": ["net-neutrality"],
-  "showAltPaymentMethods": false
+  "showAltPaymentMethods": true
 }
