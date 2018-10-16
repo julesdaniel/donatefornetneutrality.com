@@ -4,8 +4,7 @@
       <div class="wrapper">
         <div class="row text-center">
           <div class="sml-c12 lrg-c10 grid-center">
-            <LoaderLogo/>
-            <h1 class="sml-push-y2 med-push-y3">
+            <h1>
               This is our last best chance to save net neutrality
             </h1>
           </div> <!-- .c -->
@@ -192,7 +191,6 @@
 <script>
 import config from '~/config'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
-import LoaderLogo from '~/components/LoaderLogo'
 import ProgressBar from '~/components/ProgressBar'
 import QuoteScroller from '~/components/QuoteScroller'
 import DonationMatchingForm from '~/components/DonationMatchingForm'
@@ -201,7 +199,6 @@ import LogoCloud from '~/components/LogoCloud'
 
 export default {
   components: {
-    LoaderLogo,
     ProgressBar,
     QuoteScroller,
     DonationMatchingForm,
