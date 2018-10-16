@@ -60,6 +60,13 @@
           </div>
         </div> <!-- fill -->
 
+        <div class="checkbox sml-push-y1 text-left">
+          <input type="checkbox" id="is-recurring" v-model="isRecurring">
+          <label for="is-recurring">
+            Make this a monthly recurring contribution?
+          </label>
+        </div> <!-- .checkbox -->
+
         <h4 class="sml-push-y2 med-push-y3">Pay with credit card:</h4>
         <p class="text-warn sml-push-y1" v-if="errorMessage">
           {{ errorMessage }}
@@ -90,11 +97,13 @@
       </div> <!-- v-if amount -->
     </div> <!-- v-if hasSumbitted -->
 
-    <div v-if="hasSubmitted" class="text-center sml-push-y2 med-push-y3">
-      <h4 class="text-success">
-        Thank you for your important donation! Will you share this page on
-        social media to encourage others to help out?
-      </h4>
+    <div v-if="hasSubmitted" class="text-center">
+      <h3 class="text-success">
+        Thank you for your important donation!
+      </h3>
+      <p class="sml-push-y1">
+        Will you share this page on social media to encourage others to help out?
+      </p>
       <div class="row sml-push-y2 med-push-y3">
         <div class="sml-c12 lrg-c6">
           <ShareButton
@@ -151,12 +160,13 @@ export default {
       email: null,
       tmpAmount: null,
       amount: null,
-      token: null
+      token: null,
+      isRecurring: false
     }
   },
 
   computed: {
-    ...mapState(['donationAmounts', 'showAltPaymentMethods']),
+    ...mapState(['donationAmounts', 'defaultDonation', 'showAltPaymentMethods']),
 
     isOtherAmountSelected () {
       return this.tmpAmount && !this.donationAmounts.includes(this.tmpAmount)
@@ -179,6 +189,7 @@ export default {
 
   mounted() {
     this.setupStripe()
+    this.tmpAmount = this.defaultDonation
   },
 
   methods: {
@@ -278,7 +289,8 @@ export default {
           token: token.id,
           email: this.email,
           description: this.$store.state.donationDescription,
-          petition_id: this.$store.state.anPetitionId
+          petition_id: this.$store.state.anPetitionId,
+          tags: this.$store.state.donationTags
         })
 
         this.$trackEvent('stripe_donation', 'success', this.stripeAmount)
