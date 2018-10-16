@@ -9,7 +9,7 @@
   "googleAnalyticsId": "",
   "actionNetworkPetitionId": "",
   "donateUrl": "https://donate.fightforthefuture.org/",
-  "currentAmountDonated": 20000,
+  "currentAmountDonated": 10000,
   "donationGoal": 50000,
   "donationAmounts": [10, 50, 100],
   "showAltPaymentMethods": false,
