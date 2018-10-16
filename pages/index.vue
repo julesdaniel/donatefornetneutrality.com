@@ -139,7 +139,7 @@
           <div class="sml-c12 lrg-c8 grid-center text-center">
             <h2 class="section-title">Join us in matching donations</h2>
             <p class="sml-push-y2 med-push-y3">
-              If you represent an organization that would like to help preserv
+              If you represent an organization that would like to help preserve
               a free and open internet by matching donations for this campaign,
               please fill out the form below and press &rdquo;JOIN US.&rdquo;
               We&rsquo;ll get back to you as soon as possible.
