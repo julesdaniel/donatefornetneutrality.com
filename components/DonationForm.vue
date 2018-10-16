@@ -72,7 +72,7 @@
 
           <button class="btn btn-block sml-push-y1" :disabled="isSending">
             <span v-if="isSending">
-              Sending...
+              Processing...
             </span>
             <span v-else>
               Submit Donation
@@ -118,6 +118,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import axios from 'axios'
 import ShareButton from '~/components/ShareButton'
 
@@ -155,22 +156,26 @@ export default {
   },
 
   computed: {
-    donationAmounts () { return this.$store.state.donationAmounts },
+    ...mapState(['donationAmounts', 'showAltPaymentMethods']),
+
     isOtherAmountSelected () {
       return this.tmpAmount && !this.donationAmounts.includes(this.tmpAmount)
     },
-    showAltPaymentMethods () { return this.$store.state.showAltPaymentMethods }
-  },
 
-  watch: {
-    amount(newVal, oldVal) {
-      // Only show setup Apple/Google Pay if enabled in config
-      if (!this.showAltPaymentMethods) return
-      if (newVal) {
-        this.setupStripePaymentRequest()
-      }
+    stripeAmount() {
+      return this.amount * 100
     }
   },
+
+  // watch: {
+  //   amount(newVal, oldVal) {
+  //     // Only show setup Apple/Google Pay if enabled in config
+  //     if (!this.showAltPaymentMethods) return
+  //     if (newVal) {
+  //       this.setupStripePaymentRequest()
+  //     }
+  //   }
+  // },
 
   mounted() {
     this.setupStripe()
@@ -181,7 +186,8 @@ export default {
       stripe = Stripe(process.env.stripeApiKey)
       elements = stripe.elements()
       card = null
-      let formStyle = {
+
+      const formStyle = {
         base: {
           color: "#201B2C",
           fontSize: '16px',
@@ -199,8 +205,8 @@ export default {
       }
 
       // Create and mount a new Stripe CC form
-      card = elements.create('card', {style: formStyle});
-      card.mount(this.$refs.card);
+      card = elements.create('card', {style: formStyle})
+      card.mount(this.$refs.card)
     },
 
     setupStripePaymentRequest() {
@@ -209,8 +215,8 @@ export default {
         country: 'US',
         currency: 'usd',
         total: {
-          label: 'Donate for Net Neutrality',
-          amount: this.amount*100, // NOTE: x 100, required for Google and Apple pay
+          label: this.$store.state.donationDescription,
+          amount: this.stripeAmount,
         },
         requestPayerName: false,
         requestPayerEmail: true
@@ -246,31 +252,50 @@ export default {
       if (this.isSending) return
 
       this.isSending = true
-      this.$trackEvent('stripe_donation_cc_form', 'submit')
+      this.$trackEvent('stripe_donation_form', 'submit')
 
-      this.getCardToken()
+      try {
+        await this.createStripeCharge()
+        this.hasSubmitted = true
+      }
+      catch (error) {
+        this.errorMessage = `${error.message}  🙁`
+      }
 
-      // TODO: Create charge
-      // self.$trackEvent('stripe_donation_form', 'success')
-      // self.isSending = false
-      // self.hasSubmitted = true
+      this.isSending = false
     },
 
-    async getCardToken() {
-      let self = this
-      stripe.createToken(card).then(function(result) {
-        if (result.error) {
-          self.isSending = false
-          self.errorMessage = result.error.message
-          self.$forceUpdate()
-        } else {
-          // TODO: test success
-          console.log(result)
-          console.log(result.token)
-          self.token = result.token
+    async createStripeCharge() {
+      const { token, error } = await stripe.createToken(card)
+
+      if (error) {
+        throw new Error(error.message)
+      }
+
+      try {
+        const { data } = await axios.post('https://payments.fftf.xyz/stripe', {
+          amount: this.stripeAmount,
+          token: token.id,
+          email: this.email,
+          description: this.$store.state.donationDescription,
+          petition_id: this.$store.state.anPetitionId
+        })
+
+        this.$trackEvent('stripe_donation', 'success', this.stripeAmount)
+      }
+      catch (error) {
+        let errorMessage
+
+        if (error.response && error.response.data && error.response.data.error) {
+          errorMessage = error.response.data.error
         }
-      })
-    },
+        else {
+          errorMessage = "Couldn't connect to payment processor"
+        }
+
+        throw new Error(errorMessage)
+      }
+    }
   }
 }
 </script>
