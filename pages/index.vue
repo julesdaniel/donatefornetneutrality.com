@@ -20,10 +20,8 @@
               :current-total="currentAmountDonated"
               :goal-total="donationGoal"
               class="sml-push-y2 med-push-y3"/>
-            <a class="btn btn-block sml-push-y2 med-push-y4"
-               @click.prevent="scrollTo('#donate')">
-              Donate
-            </a>
+
+            <DonationForm id="donate-form"/>
 
             <ul class="hoz sml-push-y2 med-push-y3">
               <li>
@@ -179,7 +177,11 @@
             <h2 class="section-title">
               Donate now to save net neutrality
             </h2>
-            <DonationForm/>
+
+            <a class="btn btn-block sml-push-y2 med-push-y4"
+               @click.prevent="scrollTo('#donate-form')">
+              Donate
+            </a>
           </div> <!-- .c -->
         </div> <!-- .row -->
       </div> <!-- .wrapper -->
