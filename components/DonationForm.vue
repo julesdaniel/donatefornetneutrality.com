@@ -156,6 +156,7 @@ export default {
 
   computed: {
     donationAmounts () { return this.$store.state.donationAmounts },
+    defaultDonation () { return this.$store.state.defaultDonation },
     isOtherAmountSelected () {
       return this.tmpAmount && !this.donationAmounts.includes(this.tmpAmount)
     },
@@ -174,6 +175,7 @@ export default {
 
   mounted() {
     this.setupStripe()
+    this.tmpAmount = this.defaultDonation
   },
 
   methods: {
