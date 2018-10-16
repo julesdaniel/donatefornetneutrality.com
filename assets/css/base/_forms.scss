@@ -77,29 +77,25 @@ select {
 }
 
 // Forms > Checkboxes & Radios
-form input[type=checkbox],
-form input[type=radio] {
+input[type=checkbox],
+input[type=radio] {
   margin-right: $gutter;
 }
-form input[type=checkbox] ~ label,
-form input[type=radio] ~ label {
+input[type=checkbox] ~ label,
+input[type=radio] ~ label {
   font-size: $base-font-size;
 }
-form .checkbox,
-form .radio {
+.checkbox,
+.radio {
   overflow: hidden;
 }
-form .checkbox input[type=checkbox],
-form .radio input[type=radio] {
+.checkbox input[type=checkbox],
+.radio input[type=radio] {
   float: left;
   margin-top: $gutter/2;
   // NOTE: Browsers may pay attention to some or none of these:
   width:  $base-font-size;
   height: $base-font-size;
-}
-form .checkbox label,
-form .radio label {
-  margin-left: $gutter*3; // NOTE: accounts for checkbox input width
 }
 
 // Forms > Checkboxes & Radios > Faux Button

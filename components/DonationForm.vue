@@ -51,7 +51,7 @@
       </div>
 
       <div v-show="amount">
-        <div class="fill-success sml-pad-1 sml-pad-x2 is-rounded text-left">
+        <div class="fill-brand sml-pad-1 sml-pad-x2 is-rounded text-left">
           <div class="flex-row flex-center">
             <h3>${{ amount }}</h3>
             <div class="text-right">
@@ -60,25 +60,12 @@
           </div>
         </div> <!-- fill -->
 
-        <h4 class="sml-push-y2">
-          Make it monthly?
-        </h4>
-        <form class="row sml-push-y1">
-          <div class="sml-c6">
-            <div class="faux-btn">
-              <input type="radio" id="recurring-true" :value="true"
-                     v-model="isRecurring">
-              <label for="recurring-true">Yes, count me in!</label>
-            </div> <!-- .faux-btn -->
-          </div> <!-- .c -->
-          <div class="sml-c6">
-            <div class="faux-btn">
-              <input type="radio" id="recurring-false" :value="false"
-                     v-model="isRecurring">
-              <label for="recurring-false">No, donate once</label>
-            </div> <!-- .faux-btn -->
-          </div> <!-- .c -->
-        </form> <!-- .row -->
+        <div class="checkbox sml-push-y1 text-left">
+          <input type="checkbox" id="is-recurring" v-model="isRecurring">
+          <label for="is-recurring">
+            Make this a monthly recurring contribution?
+          </label>
+        </div> <!-- .checkbox -->
 
         <h4 class="sml-push-y2 med-push-y3">Pay with credit card:</h4>
         <p class="text-warn sml-push-y1" v-if="errorMessage">
