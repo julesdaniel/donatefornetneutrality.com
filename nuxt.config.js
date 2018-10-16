@@ -30,7 +30,7 @@ module.exports = {
   ** Environment configuration
   */
   env: {
-    stripeApiKey: process.env.STRIPE_API_KEY || 'TEST_STRIPE_API_KEY'
+    stripeApiKey: process.env.STRIPE_API_KEY || 'pk_test_KTyxkJ94nvaBujtk0VsUqZAN'
   },
   /*
   ** Router configuration
