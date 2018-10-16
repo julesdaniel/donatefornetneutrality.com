@@ -300,7 +300,8 @@ export default {
           token: token.id,
           email: this.email,
           description: this.$store.state.donationDescription,
-          petition_id: this.$store.state.anPetitionId
+          petition_id: this.$store.state.anPetitionId,
+          tags: this.$store.state.donationTags
         })
 
         this.$trackEvent('stripe_donation', 'success', this.stripeAmount)
