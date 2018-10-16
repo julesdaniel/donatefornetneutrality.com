@@ -111,10 +111,12 @@
     </div> <!-- v-if hasSumbitted -->
 
     <div v-if="hasSubmitted" class="text-center">
-      <h4 class="text-success">
-        Thank you for your important donation! Will you share this page on
-        social media to encourage others to help out?
-      </h4>
+      <h3 class="text-success">
+        Thank you for your important donation!
+      </h3>
+      <p class="sml-push-y1">
+        Will you share this page on social media to encourage others to help out?
+      </p>
       <div class="row sml-push-y2 med-push-y3">
         <div class="sml-c12 lrg-c6">
           <ShareButton
