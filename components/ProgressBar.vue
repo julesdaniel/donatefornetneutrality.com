@@ -13,7 +13,8 @@ $bar-height: $gutter*2;
   top: 0;
   bottom: 0;
   left: 0;
-  max-width: 50%;
+  max-width: 100%;
+  // max-width: 50%; // Enable if using 2-color bar
   background: $success-color;
   text-indent: 9999em;
 }
@@ -21,13 +22,17 @@ $bar-height: $gutter*2;
   border-top-left-radius:    $bar-height;
   border-bottom-left-radius: $bar-height;
 }
-.progress .progress-bar.matched-bar {
-  background: $gradient-blue;
-}
-.progress .progress-bar.matched-bar.percent-50 {
+.progress .progress-bar.donations-bar.percent-50 {
   border-top-right-radius:    $bar-height;
   border-bottom-right-radius: $bar-height;
 }
+// .progress .progress-bar.matched-bar {
+//   background: $gradient-blue;
+// }
+// .progress .progress-bar.matched-bar.percent-50 {
+//   border-top-right-radius:    $bar-height;
+//   border-bottom-right-radius: $bar-height;
+// }
 </style>
 
 <template>
@@ -38,14 +43,15 @@ $bar-height: $gutter*2;
     </div> <!-- .row -->
     <div class="progress">
       <div class="progress-bar donations-bar"
-           :style="{width: `${percent}%`}">
+           :class="[{ 'percent-50': percent >= 50 }]"
+           :style="{width: `${percent*2}%`}">
         {{ percent }}
       </div>
-      <div class="progress-bar matched-bar"
+      <!-- <div class="progress-bar matched-bar"
            :class="[{ 'percent-50': percent >= 50 }]"
            :style="{width: `${percent}%`, left: `${percent <= 50 ? percent : 50}%`}">
         {{ percent }}
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
