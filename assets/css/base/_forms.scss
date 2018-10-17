@@ -97,6 +97,10 @@ input[type=radio] ~ label {
   width:  $base-font-size;
   height: $base-font-size;
 }
+.checkbox label,
+.radio label {
+  padding-bottom: 0;
+}
 
 // Forms > Checkboxes & Radios > Faux Button
 .faux-btn input[type=checkbox],

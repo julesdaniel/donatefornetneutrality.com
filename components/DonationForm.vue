@@ -96,8 +96,12 @@
           {{ errorMessage }}
         </p>
         <form @submit.prevent="submitDonation()">
-          <input v-model="email" type="email" placeholder="Email*"
-                 class="sml-push-y1" required>
+          <div class="flex-row sml-flex-col med-flex-row">
+            <input v-model="email" type="email" placeholder="Email*"
+                   class="sml-push-y1" required>
+            <input v-model="name" type="text" placeholder="Name"
+                   class="sml-push-y1">
+          </div> <!-- .flex-row -->
 
           <div ref="card" class="stripe-cc-form sml-push-y1"></div>
 
@@ -109,6 +113,14 @@
               Submit Donation
             </span>
           </button>
+
+          <div class="checkbox sml-push-y1 text-left">
+            <input type="checkbox" id="is-subscribing" v-model="isSubscribing">
+            <label for="is-subscribing">
+              Yes, I want to receive important emails about Net Neutrality
+              campaigns.
+            </label>
+          </div> <!-- .checkbox -->
         </form>
 
         <div v-if="showAltPaymentMethods">
@@ -184,8 +196,10 @@ export default {
       errorMessage: null,
       // form fields
       email: null,
+      name: null,
       tmpAmount: 0,
       amount: null,
+      isSubscribing: true,
       token: null,
       isRecurring: false,
       // animation
@@ -319,6 +333,8 @@ export default {
           amount: this.stripeAmount,
           token: token.id,
           email: this.email,
+          name: this.name ? this.name : '',
+          receive_emails: this.isSubscribing,
           description: this.$store.state.donationDescription,
           petition_id: this.$store.state.anPetitionId,
           tags: this.$store.state.donationTags
