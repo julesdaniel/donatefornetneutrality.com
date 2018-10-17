@@ -11,14 +11,14 @@
 // Quotes
 .quotes-wrapper {
   // NOTE: Magic numbers. Update them based on the height of the longest quote.
-  min-height: 600px;
+  min-height: 650px;
 
   @include respond-to(med) {
-    min-height: 375px;
+    min-height: 400px;
   }
 
   @include respond-to(lrg) {
-    min-height: 250px;
+    min-height: 300px;
   }
 }
 
