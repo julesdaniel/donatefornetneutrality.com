@@ -15,7 +15,7 @@ $bar-height: $gutter*2;
   left: 0;
   max-width: 100%;
   // max-width: 50%; // Enable if using 2-color bar
-  background: $success-color;
+  background: $brand-color;
   text-indent: 9999em;
 }
 .progress .progress-bar.donations-bar {
@@ -27,7 +27,7 @@ $bar-height: $gutter*2;
   border-bottom-right-radius: $bar-height;
 }
 // .progress .progress-bar.matched-bar {
-//   background: $gradient-blue;
+//   background: $success-color;
 // }
 // .progress .progress-bar.matched-bar.percent-50 {
 //   border-top-right-radius:    $bar-height;
