@@ -328,7 +328,7 @@ export default {
           token: token.id,
           email: this.email,
           name: this.name ? this.name : '',
-          subscribe_to_emails: this.isSubscribing,
+          receive_emails: this.isSubscribing,
           description: this.$store.state.donationDescription,
           petition_id: this.$store.state.anPetitionId,
           tags: this.$store.state.donationTags
