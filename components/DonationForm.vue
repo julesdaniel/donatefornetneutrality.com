@@ -60,12 +60,13 @@
           </div>
         </div> <!-- fill -->
 
-        <div class="checkbox sml-push-y1 text-left">
+        <!-- TODO: enable recurring toggle again when ready -->
+        <!-- <div class="checkbox sml-push-y1 text-left">
           <input type="checkbox" id="is-recurring" v-model="isRecurring">
           <label for="is-recurring">
             Make this a monthly recurring contribution?
           </label>
-        </div> <!-- .checkbox -->
+        </div> -->
 
         <h4 class="sml-push-y2 med-push-y3">Pay with credit card:</h4>
         <p class="text-warn sml-push-y1" v-if="errorMessage">
