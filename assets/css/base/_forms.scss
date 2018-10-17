@@ -137,6 +137,6 @@ input[type=radio] ~ label {
 .faux-btn label.with-input input[type=text],
 .faux-btn label.with-input input[type=number] {
   display: inline-block;
-  max-width: 80%;
+  max-width: 79%; // NOTE: magic number depends on prefixed label
   padding: $gutter/2 $gutter $gutter/2;
 }

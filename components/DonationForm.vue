@@ -1,4 +1,5 @@
 <style lang="scss" scoped>
+// Stripe element
 .stripe-cc-form {
   background-color: $white;
   padding: ($gutter + 4) $gutter*2 ($gutter + 5);
@@ -10,6 +11,23 @@
 }
 .StripeElement--invalid {
   border-color: $warn-color;
+}
+
+// Transition Animation
+.amount-animation-container {
+  min-height: $base-font-size * $base-line-height * 2;
+
+  @include respond-to(lrg) {
+    min-height: $base-font-size * $base-line-height;
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
 
@@ -38,10 +56,15 @@
             </div> <!-- .c -->
           </div> <!-- .row -->
 
-          <p class="sml-push-y1 med-push-y2" v-if="tmpAmount">
-            Your ${{tmpAmount}} donation + ${{tmpAmount}} matching donation =
-            <span class="text-success">${{tmpAmount*2}} total donation</span>
-          </p>
+          <div class="amount-animation-container sml-push-y1 med-push-y2">
+            <transition name="fade" appear>
+              <p class="" v-if="tmpAmount">
+                Your ${{tmpAmount}} donation + ${{tmpAmount}} matching donation =
+                <span class="text-success">${{animatedAmount*2}} total donation</span>
+              </p>
+            </transition>
+          </div> <!-- .amount-animation-container -->
+
           <div class="sml-push-y1 med-push-y2">
             <button class="btn btn-sml btn-block">
               Donate
@@ -147,7 +170,8 @@ export default {
   head() {
     return {
       script: [
-        { src: 'https://js.stripe.com/v3/' }
+        { src: 'https://js.stripe.com/v3/' },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js' }
       ]
     }
   },
@@ -159,10 +183,12 @@ export default {
       errorMessage: null,
       // form fields
       email: null,
-      tmpAmount: null,
+      tmpAmount: 0,
       amount: null,
       token: null,
-      isRecurring: false
+      isRecurring: false,
+      // animation
+      tweenedAmount: 0
     }
   },
 
@@ -172,21 +198,19 @@ export default {
     isOtherAmountSelected () {
       return this.tmpAmount && !this.donationAmounts.includes(this.tmpAmount)
     },
-
     stripeAmount() {
       return this.amount * 100
+    },
+    animatedAmount: function() {
+      return this.tweenedAmount.toFixed(0);
     }
   },
 
-  // watch: {
-  //   amount(newVal, oldVal) {
-  //     // Only show setup Apple/Google Pay if enabled in config
-  //     if (!this.showAltPaymentMethods) return
-  //     if (newVal) {
-  //       this.setupStripePaymentRequest()
-  //     }
-  //   }
-  // },
+  watch: {
+    tmpAmount(newValue) {
+      TweenLite.to(this.$data, 0.7, { tweenedAmount: newValue });
+    }
+  },
 
   mounted() {
     this.setupStripe()
