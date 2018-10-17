@@ -56,9 +56,9 @@
               still reverse that decision using the Congressional Review Act
               (CRA). The Senate already passed a resolution, but now the House
               is running out of time to do the same. We&rsquo;re focusing all of
-              our energy on key lawmakers who are facing tight races, making
-              them the most likely to listen to constituents. Here&rsquo;s what
-              we&rsquo;re raising money to do:
+              our energy on <a href="https://www.votefornetneutrality.com/#key-races">key lawmakers</a> 
+              who are facing tight races, making them the most likely to listen 
+              to constituents. Here&rsquo;s what we&rsquo;re raising money to do:
             </p>
             <div class="fill-grey-dark with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
