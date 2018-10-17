@@ -64,6 +64,18 @@ export function sendToMothership(data={}, submission={}) {
   return postFormData('https://queue.fightforthefuture.org/action', data)
 }
 
+//  POST to BFTN counter, accepts a string
+export async function pingCounter(counter) {
+  const axios = require('axios')
+
+  try {
+    await axios.post(`https://counter.battleforthenet.com/ping/${counter}`)
+  }
+  catch (error) {
+    //
+  }
+}
+
 // Wrap text with two new lines in paragraph tags
 export function simpleFormat(text) {
   return text.split('\n\n').map(l => `<p>${l}</p>`).join('')

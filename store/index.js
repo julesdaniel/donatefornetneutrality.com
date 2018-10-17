@@ -13,7 +13,8 @@ const createStore = () => {
       donationTags: config.donationTags,
       showAltPaymentMethods: config.showAltPaymentMethods,
       modalVisible: false,
-      modalType: null
+      modalType: null,
+      testVariant: null
     },
     mutations: {
       setModalVisibility(state, value) {
@@ -22,6 +23,15 @@ const createStore = () => {
 
       setModalType(state, value) {
         state.modalType = value
+      },
+
+      setTestVariant(state, value) {
+        state.testVariant = value
+      }
+    },
+    getters: {
+      testVariantName: state => {
+        return state.testVariant === 'a' ? 'DFNN_subheading_above_form' : 'DFNN_subheading_below_form'
       }
     }
   })

@@ -9,18 +9,13 @@
             </h1>
           </div> <!-- .c -->
           <div class="sml-c12 lrg-c8 grid-center">
-            <p class="sml-push-y2 med-push-y3">
-              Time is running out to get Congress to overrule the FCC and
-              restore net neutrality. We have a plan to turn up the pressure
-              on key lawmakers, and with the clock ticking a team of Internet
-              defenders are prepared to match your donation to make it possible.
-            </p>
+            <Subheading v-show="testVariant === 'a'" />
             <ProgressBar
               :current-total="currentAmountDonated"
               :goal-total="donationGoal"
               class="sml-push-y2 med-push-y3"/>
-
             <DonationForm id="donate-form"/>
+            <Subheading v-show="testVariant === 'b'" />
 
             <ul class="hoz sml-push-y2 med-push-y3">
               <li>
@@ -56,8 +51,8 @@
               still reverse that decision using the Congressional Review Act
               (CRA). The Senate already passed a resolution, but now the House
               is running out of time to do the same. We&rsquo;re focusing all of
-              our energy on <a href="https://www.votefornetneutrality.com/#key-races">key lawmakers</a> 
-              who are facing tight races, making them the most likely to listen 
+              our energy on <a href="https://www.votefornetneutrality.com/#key-races">key lawmakers</a>
+              who are facing tight races, making them the most likely to listen
               to constituents. Here&rsquo;s what we&rsquo;re raising money to do:
             </p>
             <div class="fill-grey-dark with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
@@ -190,7 +185,9 @@
 
 <script>
 import config from '~/config'
+import { mapState } from 'vuex'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
+import Subheading from '~/components/Subheading'
 import ProgressBar from '~/components/ProgressBar'
 import QuoteScroller from '~/components/QuoteScroller'
 import DonationMatchingForm from '~/components/DonationMatchingForm'
@@ -199,6 +196,7 @@ import LogoCloud from '~/components/LogoCloud'
 
 export default {
   components: {
+    Subheading,
     ProgressBar,
     QuoteScroller,
     DonationMatchingForm,
@@ -219,8 +217,7 @@ export default {
   },
 
   computed: {
-    currentAmountDonated () { return this.$store.state.currentAmountDonated },
-    donationGoal () { return this.$store.state.donationGoal }
+    ...mapState(['currentAmountDonated', 'donationGoal', 'testVariant'])
   },
 
   methods: {
