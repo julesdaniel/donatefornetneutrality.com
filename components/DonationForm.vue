@@ -151,8 +151,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import axios from 'axios'
+import { pingCounter } from '~/assets/js/helpers'
 import ShareButton from '~/components/ShareButton'
 
 // Create empty Stripe Elements variables
@@ -193,7 +194,10 @@ export default {
   },
 
   computed: {
-    ...mapState(['donationAmounts', 'defaultDonation', 'showAltPaymentMethods']),
+    ...mapState([
+      'donationAmounts', 'defaultDonation', 'showAltPaymentMethods', 'testVariant'
+    ]),
+    ...mapGetters(['testVariantName']),
 
     isOtherAmountSelected () {
       return this.tmpAmount && !this.donationAmounts.includes(this.tmpAmount)
@@ -278,6 +282,7 @@ export default {
 
     setAmount() {
       this.amount = this.tmpAmount
+      pingCounter(`${this.testVariantName}_donate_click_${this.amount}`)
     },
 
     changeAmount() {
@@ -289,6 +294,7 @@ export default {
 
       this.isSending = true
       this.$trackEvent('stripe_donation_form', 'submit')
+      pingCounter(`${this.testVariantName}_donate_submit_${this.amount}`)
 
       try {
         await this.createStripeCharge()
@@ -319,6 +325,7 @@ export default {
         })
 
         this.$trackEvent('stripe_donation', 'success', this.stripeAmount)
+        pingCounter(`${this.testVariantName}_donate_success_${this.amount}`)
       }
       catch (error) {
         let errorMessage
