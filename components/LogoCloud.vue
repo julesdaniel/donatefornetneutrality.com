@@ -14,5 +14,12 @@
              alt="Evangeline Lilly"/>
       </div> <!-- .fill -->
     </div> <!-- .c -->
+    <div class="sml-c12 med-c4 sml-push-y1 med-push-y0">
+      <div class="fill-white is-rounded sml-pad-1">
+        <img src="~assets/images/logos/cory-doctorow.png"
+             class="grid-center"
+             alt="Cory Doctorow"/>
+      </div> <!-- .fill -->
+    </div> <!-- .c -->
   </div> <!-- .row -->
 </template>
