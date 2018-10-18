@@ -29,6 +29,20 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.btn-paypal {
+  background: #fff;
+  animation: none;
+  padding: 6px 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+
+  img {
+    height: 24px;
+  }
+}
 </style>
 
 <template>
@@ -94,7 +108,8 @@
         <p class="text-warn sml-push-y1" v-if="errorMessage">
           {{ errorMessage }}
         </p>
-        <form @submit.prevent="submitDonation()">
+
+        <form @submit.prevent="submitStripeForm()">
           <div class="flex-row sml-flex-col med-flex-row">
             <input v-model="email" type="email" placeholder="Email*"
                    class="sml-push-y1" required>
@@ -122,13 +137,39 @@
           </div> <!-- .checkbox -->
         </form>
 
-        <div v-if="showAltPaymentMethods">
-          <h4 class="sml-push-y2 med-push-y3">Or use one of these methods:</h4>
-          <div class="flex-row sml-push-y1">
-            <a class="btn btn-sml">Paypal</a>
-            <div ref="paymentRequestBtn"></div>
-          </div> <!-- .flex-row -->
-        </div> <!-- v-if showAltPaymentMethods -->
+        <h4 class="sml-push-y2 med-push-y3">Or pay with:</h4>
+        <div class="flex-row sml-push-y1">
+          <a class="btn btn-sml btn-paypal" href="#" @click.prevent="submitPaypalForm()"><img src="~/assets/images/paypal-btn.png" alt="PayPal"></a>
+          <div v-if="canMakePayment" ref="paymentRequestBtn"></div>
+        </div> <!-- .flex-row -->
+
+        <form class="is-hidden" ref="paypalOneTime" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="business" :value="paypalEmail">
+          <input type="hidden" name="cmd" value="_donations">
+          <input type="hidden" name="item_name" :value="donationDescription">
+          <input type="hidden" name="item_number" value="">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="amount" :value="amount">
+          <input type="hidden" name="no_shipping" value="1">
+          <img alt="" border="0" width="1" height="1" src="https://www.paypal.com/en_US/i/scr/pixel.gif">
+          <input type="hidden" name="return" :value="paypalReturnUrl">
+        </form>
+
+        <form class="is-hidden" ref="paypalRecurring" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_xclick-subscriptions">
+          <input type="hidden" name="business" :value="paypalEmail">
+          <input type="hidden" name="item_name" :value="donationDescription">
+          <input type="hidden" name="return" :value="paypalReturnUrl">
+          <input type="hidden" name="item_number" value="">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="no_shipping" value="1">
+          <input type="hidden" name="a3" :value="amount">
+          <input type="hidden" name="p3" value="1">
+          <input type="hidden" name="t3" value="M">
+          <input type="hidden" name="src" value="1">
+          <input type="hidden" name="sra" value="1">
+        </form>
+
       </div> <!-- v-if amount -->
     </div> <!-- v-if hasSumbitted -->
 
@@ -166,6 +207,7 @@ import { mapState, mapGetters } from 'vuex'
 import axios from 'axios'
 import { pingCounter } from '~/assets/js/helpers'
 import ShareButton from '~/components/ShareButton'
+import { TweenLite } from 'gsap'
 
 // Create empty Stripe Elements variables
 let stripe = null,
@@ -182,8 +224,7 @@ export default {
   head() {
     return {
       script: [
-        { src: 'https://js.stripe.com/v3/' },
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js' }
+        { src: 'https://js.stripe.com/v3/' }
       ]
     }
   },
@@ -193,6 +234,7 @@ export default {
       isSending: false,
       hasSubmitted: false,
       errorMessage: null,
+      canMakePayment: false,
       // form fields
       email: null,
       name: null,
@@ -208,8 +250,14 @@ export default {
 
   computed: {
     ...mapState([
-      'donationAmounts', 'defaultDonation', 'showAltPaymentMethods', 'testVariant'
+      'donationAmounts',
+      'defaultDonation',
+      'testVariant',
+      'donationDescription',
+      'paypalEmail',
+      'paypalReturnUrl'
     ]),
+
     ...mapGetters(['testVariantName']),
 
     isOtherAmountSelected () {
@@ -232,6 +280,12 @@ export default {
     }
   },
 
+  created() {
+    if (this.$store.state.hasAlreadyDonated) {
+      this.hasSubmitted = true
+    }
+  },
+
   mounted() {
     this.setupStripe()
     this.tmpAmount = this.defaultDonation
@@ -239,6 +293,8 @@ export default {
 
   methods: {
     setupStripe() {
+      if (!this.$refs.card) return
+
       stripe = Stripe(process.env.STRIPE_API_KEY)
       elements = stripe.elements()
       card = null
@@ -265,8 +321,18 @@ export default {
       card.mount(this.$refs.card)
     },
 
-    setupStripePaymentRequest() {
-      let self = this
+    async setupStripePaymentRequest() {
+      return // DISABLED FOR NOW
+
+      if (paymentRequest) {
+        return paymentRequest.update({
+          total: {
+            label: this.$store.state.donationDescription,
+            amount: this.stripeAmount
+          }
+        })
+      }
+
       paymentRequest = stripe.paymentRequest({
         country: 'US',
         currency: 'usd',
@@ -274,42 +340,40 @@ export default {
           label: this.$store.state.donationDescription,
           amount: this.stripeAmount,
         },
-        requestPayerName: false,
+        requestPayerName: true,
         requestPayerEmail: true
       })
 
-      if (paymentRequestBtn) {
-        // FIXME: find out what format Stripe wants
-        paymentRequestBtn.update({ paymentRequest: paymentRequest })
-      } else {
-        paymentRequestBtn = elements.create('paymentRequestButton', {
-          paymentRequest: paymentRequest,
-        })
+      paymentRequestBtn = elements.create('paymentRequestButton', {
+        paymentRequest: paymentRequest,
+      })
 
-        paymentRequest.canMakePayment().then(function(result) {
-          if (result) {
-            paymentRequestBtn.mount(self.$refs.paymentRequestBtn);
-          } else {
-            console.log('payment request API not available')
-          }
-        })
+      const result = await paymentRequest.canMakePayment()
+
+      if (result) {
+        paymentRequestBtn.mount(this.$refs.paymentRequestBtn)
+      }
+      else {
+        this.canMakePayment = false
       }
     },
 
     setAmount() {
       this.amount = this.tmpAmount
-      pingCounter(`${this.testVariantName}_donate_click_${this.amount}`)
+      this.setupStripePaymentRequest()
 
       if (!this.canRecur) {
         this.isRecurring = false
       }
+
+      pingCounter(`${this.testVariantName}_donate_click_${this.amount}`)
     },
 
     changeAmount() {
       this.amount = null
     },
 
-    async submitDonation() {
+    async submitStripeForm() {
       if (this.isSending) return
 
       this.isSending = true
@@ -362,6 +426,15 @@ export default {
 
         throw new Error(errorMessage)
       }
+    },
+
+    submitPaypalForm() {
+      const ref = this.isRecurring ? 'paypalRecurring' : 'paypalOneTime'
+      const form = this.$refs[ref]
+      this.isSending = true
+      this.$trackEvent(`${ref}_form`, 'submit')
+      pingCounter(`${this.testVariantName}_${ref}_submit_${this.amount}`)
+      form.submit()
     }
   }
 }

@@ -12,9 +12,12 @@ const createStore = () => {
       donationDescription: config.donationDescription,
       donationTags: config.donationTags,
       showAltPaymentMethods: config.showAltPaymentMethods,
+      paypalEmail: config.paypalEmail,
+      paypalReturnUrl: config.paypalReturnUrl,
       modalVisible: false,
       modalType: null,
-      testVariant: null
+      testVariant: null,
+      hasAlreadyDonated: false
     },
     mutations: {
       setModalVisibility(state, value) {
@@ -27,6 +30,10 @@ const createStore = () => {
 
       setTestVariant(state, value) {
         state.testVariant = value
+      },
+
+      setHasAlreadyDonated(state, value) {
+        state.hasAlreadyDonated = value
       }
     },
     getters: {
