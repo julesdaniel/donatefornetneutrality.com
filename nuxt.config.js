@@ -30,7 +30,8 @@ module.exports = {
   ** Environment configuration
   */
   env: {
-    stripeApiKey: process.env.STRIPE_API_KEY || 'pk_test_KTyxkJ94nvaBujtk0VsUqZAN'
+    STRIPE_API_KEY: process.env.STRIPE_API_KEY || 'pk_test_KTyxkJ94nvaBujtk0VsUqZAN',
+    PAYMENTS_API_URL: process.env.PAYMENTS_API_URL || 'https://payments-dev.fftf.xyz/'
   },
   /*
   ** Router configuration
