@@ -239,7 +239,7 @@ export default {
 
   methods: {
     setupStripe() {
-      stripe = Stripe(process.env.stripeApiKey)
+      stripe = Stripe(process.env.STRIPE_API_KEY)
       elements = stripe.elements()
       card = null
 
@@ -335,7 +335,7 @@ export default {
       }
 
       try {
-        const { data } = await axios.post('https://payments.fftf.xyz/stripe', {
+        const { data } = await axios.post(`${process.env.PAYMENTS_API_URL}stripe`, {
           amount: this.stripeAmount,
           token: token.id,
           email: this.email,
