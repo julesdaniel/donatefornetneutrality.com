@@ -406,7 +406,7 @@ export default {
           name: this.name ? this.name : '',
           receive_emails: this.isSubscribing,
           description: this.$store.state.donationDescription,
-          petition_id: this.$store.state.anPetitionId,
+          fundraiser_id: this.$store.state.actionNetworkFundraiserId,
           tags: this.$store.state.donationTags,
           frequency: this.isRecurring ? 'monthly' : 'once'
         })

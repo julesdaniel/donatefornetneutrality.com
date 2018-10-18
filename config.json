@@ -7,13 +7,13 @@
     "url": "https://www.donatefornetneutrality.com"
   },
   "googleAnalyticsId": "UA-123898108-5",
-  "actionNetworkPetitionId": "17af0377-c1b3-4cb7-8187-17417cabf7d9",
+  "actionNetworkFundraiserId": "fd77a71e-86fb-4942-a3d8-f7046481bf26",
   "currentAmountDonated": 10000,
   "donationGoal": 50000,
   "donationAmounts": [3, 10, 30, 50, 75, 100, 250],
   "defaultDonation": 10,
   "donationDescription": "Donation for Net Neutrality",
-  "donationTags": ["net-neutrality"],
+  "donationTags": ["net-neutrality", "donor"],
   "paypalEmail": "fftfinaction@gmail.com",
   "paypalReturnUrl": "https://www.donatefornetneutrality.com/thanks/"
 }
