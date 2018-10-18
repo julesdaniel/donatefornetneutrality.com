@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c10 grid-center">
             <h1>
-              This is our last best chance to save net neutrality
+              Double Your Donation for Net Neutrality
             </h1>
           </div> <!-- .c -->
           <div class="sml-c12 lrg-c8 grid-center">
@@ -112,13 +112,14 @@
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
             <h2 class="section-title">
-              These internet champions will match your donation
+              These Internet Champions will match your donation
             </h2>
             <p class="sml-push-y2 med-push-y3">
               These folks have been on the front lines defending net neutrality
               and fighting for an Internet full of free expression, information,
-              and creativity. Together, they&rsquo;re committing to match
-              donations from Internet users.
+              and creativity. If you&rsquo;d like to join the list of Internet 
+              Champions, fill out the form below to help match donations or 
+              make a significant financial donation of at least $500.
             </p>
 
             <LogoCloud class="sml-push-y2 med-push-y3"/>
