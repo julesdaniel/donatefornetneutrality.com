@@ -14,5 +14,6 @@
   "defaultDonation": 10,
   "donationDescription": "Donation for Net Neutrality",
   "donationTags": ["net-neutrality"],
-  "showAltPaymentMethods": false
+  "paypalEmail": "fftfinaction@gmail.com",
+  "paypalReturnUrl": "https://www.donatefornetneutrality.com/thanks/"
 }
