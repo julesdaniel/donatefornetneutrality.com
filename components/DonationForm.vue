@@ -83,7 +83,7 @@
           </div>
         </div> <!-- fill -->
 
-        <div class="checkbox sml-push-y1 text-left">
+        <div class="checkbox sml-push-y1 text-left" v-if="canRecur">
           <input type="checkbox" id="is-recurring" v-model="isRecurring">
           <label for="is-recurring">
             Make this a monthly recurring contribution?
@@ -218,8 +218,11 @@ export default {
     stripeAmount() {
       return this.amount * 100
     },
-    animatedAmount: function() {
+    animatedAmount() {
       return this.tweenedAmount.toFixed(0);
+    },
+    canRecur() {
+      return this.donationAmounts.includes(this.amount)
     }
   },
 
@@ -296,6 +299,10 @@ export default {
     setAmount() {
       this.amount = this.tmpAmount
       pingCounter(`${this.testVariantName}_donate_click_${this.amount}`)
+
+      if (!this.canRecur) {
+        this.isRecurring = false
+      }
     },
 
     changeAmount() {
