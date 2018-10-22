@@ -117,8 +117,8 @@
             <p class="sml-push-y2 med-push-y3">
               These folks have been on the front lines defending net neutrality
               and fighting for an Internet full of free expression, information,
-              and creativity. If you&rsquo;d like to join the list of Internet 
-              Champions, fill out the form below to help match donations or 
+              and creativity. If you&rsquo;d like to join the list of Internet
+              Champions, fill out the form below to help match donations or
               make a significant financial donation of at least $500.
             </p>
 
