@@ -9,7 +9,7 @@
         </div> <!-- .fill -->
       </div> <!-- .c -->
       <div class="sml-c12 med-c4">
-        <div class="fill-white is-rounded sml-pad-1">
+        <div class="fill-white is-rounded sml-pad-1 sml-push-y1 med-push-y0">
           <img src="~assets/images/logos/startpage.png"
                class="grid-center"
                alt="StartPage"/>
@@ -22,16 +22,16 @@
                alt="Evangeline Lilly"/>
         </div> <!-- .fill -->
       </div> <!-- .c -->
-      <div class="sml-c12 med-c4 sml-push-y1 med-push-y0">
+    </div> <!-- .row -->
+    <div class="row">
+      <div class="sml-c12 med-c4 sml-push-y1 med-push-y3">
         <div class="fill-white is-rounded sml-pad-1">
           <img src="~assets/images/logos/cory-doctorow.png"
                class="grid-center"
                alt="Cory Doctorow"/>
         </div> <!-- .fill -->
       </div> <!-- .c -->
-    </div> <!-- .row -->
-    <div class="row">
-      <div class="sml-c12 med-c4 med-s4 sml-push-y1 med-push-y3">
+      <div class="sml-c12 med-c4 sml-push-y1 med-push-y3">
         <div class="fill-white is-rounded sml-pad-1">
           <img src="~assets/images/logos/tom-morello.png"
                class="grid-center"
