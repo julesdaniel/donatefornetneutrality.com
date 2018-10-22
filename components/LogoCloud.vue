@@ -8,6 +8,13 @@
                alt="Private Internet Access"/>
         </div> <!-- .fill -->
       </div> <!-- .c -->
+      <div class="sml-c12 med-c4">
+        <div class="fill-white is-rounded sml-pad-1">
+          <img src="~assets/images/logos/startpage.png"
+               class="grid-center"
+               alt="StartPage"/>
+        </div> <!-- .fill -->
+      </div> <!-- .c -->
       <div class="sml-c12 med-c4 sml-push-y1 med-push-y0">
         <div class="fill-white is-rounded sml-pad-1">
           <img src="~assets/images/logos/evangeline-lilly.png"
