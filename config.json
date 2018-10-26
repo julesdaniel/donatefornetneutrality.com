@@ -13,7 +13,8 @@
   "donationAmounts": [3, 10, 30, 50, 75, 100, 250],
   "defaultDonation": 10,
   "donationDescription": "Donation for Net Neutrality",
-  "donationTags": ["net-neutrality", "donor"],
+  "actionNetworkTags": ["net-neutrality", "donor"],
+  "defaultDonationTag": "dfnn",
   "paypalEmail": "fftfinaction@gmail.com",
   "paypalReturnUrl": "https://www.donatefornetneutrality.com/thanks/"
 }

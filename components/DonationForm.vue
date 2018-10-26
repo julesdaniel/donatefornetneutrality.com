@@ -407,7 +407,8 @@ export default {
           receive_emails: this.isSubscribing,
           description: this.$store.state.donationDescription,
           fundraiser_id: this.$store.state.actionNetworkFundraiserId,
-          tags: this.$store.state.donationTags,
+          action_network_tags: this.$store.state.actionNetworkTags,
+          donation_tag: this.$route.query.tag || this.$store.state.defaultDonationTag,
           frequency: this.isRecurring ? 'monthly' : 'once'
         })
 
