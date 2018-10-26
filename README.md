@@ -26,3 +26,7 @@ values for development, if desired.
 
 
 For a detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+## Uploading Logos
+
+Drop logos in the relevant folder [here](https://github.com/fightforthefuture/donatefornetneutrality.com/tree/master/static/logos) and the site will automatically rebuild with the new logo. Logos are sorted alphabetically.
