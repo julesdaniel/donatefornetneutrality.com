@@ -203,7 +203,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 import axios from 'axios'
 import { pingCounter } from '~/assets/js/helpers'
 import ShareButton from '~/components/ShareButton'
@@ -292,6 +292,8 @@ export default {
   },
 
   methods: {
+    ...mapMutations(['addDonationAmount']),
+
     setupStripe() {
       if (!this.$refs.card) return
 
@@ -383,6 +385,7 @@ export default {
       try {
         await this.createStripeCharge()
         this.hasSubmitted = true
+        this.addDonationAmount(this.amount)
       }
       catch (error) {
         this.errorMessage = `${error.message}  🙁`

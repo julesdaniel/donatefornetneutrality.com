@@ -35,6 +35,10 @@ const createStore = () => {
 
       setHasAlreadyDonated(state, value) {
         state.hasAlreadyDonated = value
+      },
+
+      addDonationAmount(state, amount) {
+        state.currentAmountDonated += parseInt(amount)
       }
     },
     getters: {
