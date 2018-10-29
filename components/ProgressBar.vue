@@ -21,6 +21,7 @@ $bar-height: $gutter*2;
 .progress .progress-bar.donations-bar {
   border-top-left-radius:    $bar-height;
   border-bottom-left-radius: $bar-height;
+  transition: width .3s;
 }
 .progress .progress-bar.donations-bar.percent-50 {
   border-top-right-radius:    $bar-height;

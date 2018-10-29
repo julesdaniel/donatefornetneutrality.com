@@ -185,8 +185,9 @@
 </template>
 
 <script>
+import axios from 'axios'
 import config from '~/config'
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import { createMetaTags, smoothScrollToElement } from '~/assets/js/helpers'
 import Subheading from '~/components/Subheading'
 import ProgressBar from '~/components/ProgressBar'
@@ -221,7 +222,19 @@ export default {
     ...mapState(['currentAmountDonated', 'donationGoal', 'testVariant'])
   },
 
+  async created() {
+    try {
+      const { data } = await axios.get('https://data.battleforthenet.com/dfnn/data.json')
+      this.addDonationAmount(data.total)
+    }
+    catch (error) {
+      //
+    }
+  },
+
   methods: {
+    ...mapMutations(['addDonationAmount']),
+
     scrollTo(hash) {
       const duration = 500
       smoothScrollToElement(hash, duration)
