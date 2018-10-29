@@ -15,7 +15,7 @@ async function main() {
         if (file.match(/\.(png|jpg|jpeg|gif)$/i)) {
           logos.push({
             image: `/logos/${subdir}/${file}`,
-            name: file.replace(/\.(png|jpg|jpeg|gif)$/i, '')
+            name: file.replace(/\.(png|jpg|jpeg|gif)$/i, '').replace(/-/g, ' ')
           })
         }
       }
