@@ -1,15 +1,19 @@
 [
   {
-    "image": "/logos/individuals/Cory Doctorow.png",
+    "image": "/logos/individuals/CoryDoctorow.png",
     "name": "Cory Doctorow"
   },
   {
-    "image": "/logos/individuals/Evangeline Lilly.png",
+    "image": "/logos/individuals/EvangelineLilly.png",
     "name": "Evangeline Lilly"
   },
   {
-    "image": "/logos/individuals/Tom Morello.png",
+    "image": "/logos/individuals/TomMorello.png",
     "name": "Tom Morello"
+  },
+  {
+    "image": "/logos/individuals/JustinSun.png",
+    "name": "Justin Sun"
   },
   {
     "image": "/logos/organizations/anchorfree.png",
@@ -36,7 +40,7 @@
     "name": "Postmates"
   },
   {
-    "image": "/logos/organizations/Private Internet Access.png",
+    "image": "/logos/organizations/PrivateInternetAccess.png",
     "name": "Private Internet Access"
   },
   {
