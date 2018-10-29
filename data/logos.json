@@ -1,23 +1,27 @@
 [
   {
-    "image": "/logos/individuals/CoryDoctorow.png",
+    "image": "/logos/individuals/Cory-Doctorow.png",
     "name": "Cory Doctorow"
   },
   {
-    "image": "/logos/individuals/EvangelineLilly.png",
+    "image": "/logos/individuals/Evangeline-Lilly.png",
     "name": "Evangeline Lilly"
   },
   {
-    "image": "/logos/individuals/TomMorello.png",
-    "name": "Tom Morello"
+    "image": "/logos/individuals/Justin-Sun.png",
+    "name": "Justin Sun"
   },
   {
-    "image": "/logos/individuals/JustinSun.png",
-    "name": "Justin Sun"
+    "image": "/logos/individuals/Tom-Morello.png",
+    "name": "Tom Morello"
   },
   {
     "image": "/logos/organizations/anchorfree.png",
     "name": "anchorfree"
+  },
+  {
+    "image": "/logos/organizations/bittorrent.png",
+    "name": "bittorrent"
   },
   {
     "image": "/logos/organizations/iFixit.png",
@@ -40,7 +44,7 @@
     "name": "Postmates"
   },
   {
-    "image": "/logos/organizations/PrivateInternetAccess.png",
+    "image": "/logos/organizations/Private-Internet-Access.png",
     "name": "Private Internet Access"
   },
   {
