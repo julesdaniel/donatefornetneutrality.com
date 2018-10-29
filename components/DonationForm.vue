@@ -92,7 +92,7 @@
           <div class="flex-row flex-center">
             <h3>${{ amount }}</h3>
             <div class="text-right">
-              <a @click="changeAmount" class="link-light">Edit</a>
+              <a @click.prevent="changeAmount" class="link-light">Edit</a>
             </div>
           </div>
         </div> <!-- fill -->
@@ -140,7 +140,7 @@
         <h4 class="sml-push-y2 med-push-y3">Or pay with:</h4>
         <div class="flex-row sml-push-y1">
           <a class="btn btn-sml btn-paypal" href="#" @click.prevent="submitPaypalForm()"><img src="~/assets/images/paypal-btn.png" alt="PayPal"></a>
-          <div v-if="canMakePayment" ref="paymentRequestBtn"></div>
+          <div v-if="canUsePaymentRequestButton" ref="paymentRequestBtn"></div>
         </div> <!-- .flex-row -->
 
         <form class="is-hidden" ref="paypalOneTime" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -210,11 +210,10 @@ import ShareButton from '~/components/ShareButton'
 import { TweenLite } from 'gsap'
 
 // Create empty Stripe Elements variables
-let stripe = null,
-    elements = null,
-    card = null,
-    paymentRequest = null,
-    paymentRequestBtn = null
+let stripe,
+    stripeCard,
+    stripeElements,
+    stripePaymentRequest
 
 export default {
   components: {
@@ -234,7 +233,7 @@ export default {
       isSending: false,
       hasSubmitted: false,
       errorMessage: null,
-      canMakePayment: false,
+      canUsePaymentRequestButton: true,
       // form fields
       email: null,
       name: null,
@@ -294,12 +293,11 @@ export default {
   methods: {
     ...mapMutations(['addDonationAmount']),
 
-    setupStripe() {
+    async setupStripe() {
       if (!this.$refs.card) return
 
       stripe = Stripe(process.env.STRIPE_API_KEY)
-      elements = stripe.elements()
-      card = null
+      stripeElements = stripe.elements()
 
       const formStyle = {
         base: {
@@ -319,23 +317,11 @@ export default {
       }
 
       // Create and mount a new Stripe CC form
-      card = elements.create('card', {style: formStyle})
-      card.mount(this.$refs.card)
-    },
+      stripeCard = stripeElements.create('card', { style: formStyle })
+      stripeCard.mount(this.$refs.card)
 
-    async setupStripePaymentRequest() {
-      return // DISABLED FOR NOW
-
-      if (paymentRequest) {
-        return paymentRequest.update({
-          total: {
-            label: this.$store.state.donationDescription,
-            amount: this.stripeAmount
-          }
-        })
-      }
-
-      paymentRequest = stripe.paymentRequest({
+      // Set up Payment Request button for Apple, Google, and Microsoft Pay
+      stripePaymentRequest = stripe.paymentRequest({
         country: 'US',
         currency: 'usd',
         total: {
@@ -346,26 +332,37 @@ export default {
         requestPayerEmail: true
       })
 
-      paymentRequestBtn = elements.create('paymentRequestButton', {
-        paymentRequest: paymentRequest,
-      })
+      // Process payment when token is received
+      stripePaymentRequest.on('token', this.receivePaymentRequestToken)
 
-      const result = await paymentRequest.canMakePayment()
+      // If the user has Apple/Google Pay, set up the button
+      const paymentMethods = await stripePaymentRequest.canMakePayment()
 
-      if (result) {
-        paymentRequestBtn.mount(this.$refs.paymentRequestBtn)
+      if (paymentMethods) {
+        const btn = stripeElements.create('paymentRequestButton', {
+          paymentRequest: stripePaymentRequest,
+        })
+        btn.mount(this.$refs.paymentRequestBtn)
       }
       else {
-        this.canMakePayment = false
+        this.canUsePaymentRequestButton = false
       }
     },
 
     setAmount() {
       this.amount = this.tmpAmount
-      this.setupStripePaymentRequest()
 
       if (!this.canRecur) {
         this.isRecurring = false
+      }
+
+      if (stripePaymentRequest) {
+        stripePaymentRequest.update({
+          total: {
+            label: this.$store.state.donationDescription,
+            amount: this.stripeAmount
+          }
+        })
       }
 
       pingCounter(`${this.testVariantName}_donate_click_${this.amount}`)
@@ -373,6 +370,21 @@ export default {
 
     changeAmount() {
       this.amount = null
+    },
+
+    async receivePaymentRequestToken(event) {
+      this.email = event.payerEmail
+      this.name = event.payerName
+
+      try {
+        await this.createStripeCharge(event.token)
+        event.complete('success')
+        this.$trackEvent('stripe_payment_request_button', 'success', this.stripeAmount)
+      }
+      catch (error) {
+        this.errorMessage = `${error.message}  🙁`
+        event.complete('fail')
+      }
     },
 
     async submitStripeForm() {
@@ -383,9 +395,13 @@ export default {
       pingCounter(`${this.testVariantName}_donate_submit_${this.amount}`)
 
       try {
-        await this.createStripeCharge()
-        this.hasSubmitted = true
-        this.addDonationAmount(this.amount)
+        const { token, error } = await stripe.createToken(stripeCard)
+
+        if (error) {
+          throw new Error(error.message)
+        }
+
+        await this.createStripeCharge(token)
       }
       catch (error) {
         this.errorMessage = `${error.message}  🙁`
@@ -394,13 +410,7 @@ export default {
       this.isSending = false
     },
 
-    async createStripeCharge() {
-      const { token, error } = await stripe.createToken(card)
-
-      if (error) {
-        throw new Error(error.message)
-      }
-
+    async createStripeCharge(token) {
       try {
         const { data } = await axios.post(`${process.env.PAYMENTS_API_URL}stripe`, {
           amount: this.stripeAmount,
@@ -414,6 +424,9 @@ export default {
           donation_tag: this.$route.query.tag || this.$store.state.defaultDonationTag,
           frequency: this.isRecurring ? 'monthly' : 'once'
         })
+
+        this.hasSubmitted = true
+        this.addDonationAmount(this.amount)
 
         this.$trackEvent('stripe_donation', 'success', this.stripeAmount)
         pingCounter(`${this.testVariantName}_donate_success_${this.amount}`)
