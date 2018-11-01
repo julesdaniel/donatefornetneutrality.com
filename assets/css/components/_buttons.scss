@@ -40,9 +40,8 @@ $step: 6%;
   color: $white;
   cursor: pointer;
   font-family: $heading-stack;
-  font-size:  $font-size-3;
+  font-size:  $m-font-size-3;
   font-weight: $bold-font-weight;
-  letter-spacing: 3px;
   outline: none;
   text-align: center;
   text-decoration: none;
@@ -56,6 +55,8 @@ $step: 6%;
   @include respond-to(med) {
     padding-right: $gutter*4;
     padding-left:  $gutter*4;
+    font-size:  $font-size-3;
+    letter-spacing: 3px;
   }
 }
 .btn:hover,
