@@ -43,6 +43,21 @@
     height: 26px;
   }
 }
+.link-coin-icon {
+  display: inline-block;
+  border-bottom: none;
+}
+.link-coin-icon img {
+  display: inline-block;
+  height: $base-font-size*$base-line-height;
+  width: auto;
+  padding-right: $gutter;
+  vertical-align: bottom;
+}
+.link-coin-icon span {
+  display: inline-block;
+  border-bottom: 1px solid $white;
+}
 </style>
 
 <template>
@@ -88,7 +103,10 @@
           </div> <!-- .push -->
 
           <div class="sml-push-y1 med-push-y2">
-            <nuxt-link to="/cryptocurrency" class="link-light">Donate with cryptocurrency</nuxt-link>
+            <nuxt-link to="/cryptocurrency" class="link-light link-coin-icon">
+              <img src="~/assets/images/crypto.png" alt="crypto coin icon"/>
+              <span>Donate with cryptocurrency</span>
+            </nuxt-link>
           </div> <!-- .push -->
         </form>
       </div>
