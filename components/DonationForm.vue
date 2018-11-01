@@ -40,7 +40,7 @@
   max-width: 50%;
 
   img {
-    height: 24px;
+    height: 26px;
   }
 }
 </style>
@@ -341,6 +341,13 @@ export default {
       if (paymentMethods) {
         const btn = stripeElements.create('paymentRequestButton', {
           paymentRequest: stripePaymentRequest,
+          style: {
+            paymentRequestButton: {
+              type: 'donate', //'default' | 'donate' | 'buy', // default: 'default'
+              theme: 'light-outline', // 'dark' | 'light' | 'light-outline', // default: 'dark'
+              height: '60px', // default: '40px', the width is always '100%'
+            },
+          },
         })
         btn.mount(this.$refs.paymentRequestBtn)
       }
