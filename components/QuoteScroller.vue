@@ -42,7 +42,7 @@
 }
 .arrow:hover,
 .arrow:focus {
-  background: $brand-dark-color;
+  background: $gradient-purple;
 }
 .arrow img {
   width: 15px;

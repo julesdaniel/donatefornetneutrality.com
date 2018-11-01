@@ -15,7 +15,7 @@ h1 {
   font-size: $m-font-size-1;
   line-height: 1.2;
 
-  @include respond-to(lrg) {
+  @include respond-to(med) {
     font-size: $font-size-1;
   }
 }
@@ -23,21 +23,21 @@ h2 {
   font-size: $m-font-size-2;
   line-height: 1.2;
 
-  @include respond-to(lrg) {
+  @include respond-to(med) {
     font-size: $font-size-2;
   }
 }
 h3 {
   font-size: $m-font-size-3;
 
-  @include respond-to(lrg) {
+  @include respond-to(med) {
     font-size: $font-size-3;
   }
 }
 h4 {
   font-size: $m-font-size-4;
 
-  @include respond-to(lrg) {
+  @include respond-to(med) {
     font-size: $font-size-4;
   }
 }

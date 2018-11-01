@@ -40,13 +40,13 @@
   max-width: 50%;
 
   img {
-    height: 24px;
+    height: 26px;
   }
 }
 </style>
 
 <template>
-  <div class="sml-pad-2 med-pad-3 with-border is-rounded fill-grey-dark sml-push-y2 med-push-y3">
+  <div class="sml-pad-2 med-pad-3 with-border is-rounded sml-push-y2 med-push-y3">
     <div v-if="!hasSubmitted">
       <div v-show="!amount">
         <h4>Choose an amount to donate:</h4>
@@ -88,7 +88,7 @@
       </div>
 
       <div v-show="amount">
-        <div class="fill-brand sml-pad-1 sml-pad-x2 is-rounded text-left">
+        <div class="fill-success sml-pad-1 sml-pad-x2 is-rounded text-left">
           <div class="flex-row flex-center">
             <h3>${{ amount }}</h3>
             <div class="text-right">
@@ -341,6 +341,13 @@ export default {
       if (paymentMethods) {
         const btn = stripeElements.create('paymentRequestButton', {
           paymentRequest: stripePaymentRequest,
+          style: {
+            paymentRequestButton: {
+              type: 'donate', //'default' | 'donate' | 'buy', // default: 'default'
+              theme: 'light-outline', // 'dark' | 'light' | 'light-outline', // default: 'dark'
+              height: '60px', // default: '40px', the width is always '100%'
+            },
+          },
         })
         btn.mount(this.$refs.paymentRequestBtn)
       }
