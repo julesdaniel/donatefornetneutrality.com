@@ -16,7 +16,7 @@
     <section class="sml-pad-y3 med-pad-y6 fill-top">
       <div class="wrapper">
         <div class="row text-center">
-          <div class="sml-c12 lrg-c10 grid-center">
+          <div class="sml-c12 lrg-c8 grid-center">
             <h1>
               Donate Cryptocurrency for Net Neutrality
             </h1>
@@ -42,8 +42,8 @@
               <a @click.prevent="scrollTo('#faq')">Frequently Asked Questions</a>
             </p>
 
-            <div v-if="coins">
-              <div v-for="c in coins" :key="`c-${c.name}`" class="sml-push-y3">
+            <div v-if="currencies">
+              <div v-for="c in currencies" :key="`c-${c.name}`" class="sml-push-y3">
                 <p class="coin-name">
                   <img :src="c.logo" :alt="`${c.name}-logo`" class="coin-logo" />
                   {{ c.name }} ({{ c.code }})
@@ -51,7 +51,7 @@
                 <form v-if="c.address" class="sml-push-y1">
                   <input type="text" :value="c.address"/>
                 </form>
-                <p v-if="c.note" class="sml-push-y1">{{ c.note }}</p>
+                <p v-if="c.note" class="sml-push-y1 text-warn">{{ c.note }}</p>
                 <form v-if="c.fields">
                   <div v-for="field in c.fields" :key="`c-${c.name}-${field.value}`">
                     <label class="sml-push-y1">{{ field.name }}</label>
@@ -59,12 +59,6 @@
                   </div>
                 </form>
               </div> <!-- v-for -->
-
-              <a v-if="!showingAllCoins"
-                 @click="showAllCoins"
-                 class="btn btn-sml btn-block sml-push-y3">
-                View all
-              </a>
             </div> <!-- v-if -->
           </div> <!-- .c -->
         </div> <!-- .row -->
@@ -148,27 +142,7 @@ export default {
     }
   },
 
-  data () {
-    return {
-      showingAllCoins: false
-    }
-  },
-
-  computed: {
-    coins() {
-      if (!this.showingAllCoins) {
-        return this.currencies.slice(0, 4)
-      } else {
-        return this.currencies
-      }
-    },
-  },
-
   methods: {
-    showAllCoins() {
-      this.showingAllCoins = true
-    },
-
     scrollTo(hash) {
       const duration = 500
       smoothScrollToElement(hash, duration)

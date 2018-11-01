@@ -72,9 +72,11 @@
 
           <div class="amount-animation-container sml-push-y1 med-push-y2">
             <transition name="fade" appear>
-              <p class="" v-if="tmpAmount">
-                Your ${{tmpAmount}} donation + ${{tmpAmount}} matching donation =
-                <span class="text-success">${{animatedAmount*2}} total donation</span>
+              <p v-if="tmpAmount">
+                <strong>
+                  Your ${{tmpAmount}} donation + ${{tmpAmount}} matching donation =
+                  <span class="text-success">${{animatedAmount*2}} total donation</span>
+                </strong>
               </p>
             </transition>
           </div> <!-- .amount-animation-container -->
@@ -83,7 +85,11 @@
             <button class="btn btn-sml btn-block">
               Donate
             </button>
-          </div> <!-- .c -->
+          </div> <!-- .push -->
+
+          <div class="sml-push-y1 med-push-y2">
+            <nuxt-link to="/cryptocurrency" class="link-light">Donate with cryptocurrency</nuxt-link>
+          </div> <!-- .push -->
         </form>
       </div>
 
@@ -100,7 +106,9 @@
         <div class="checkbox sml-push-y1 text-left" v-if="canRecur">
           <input type="checkbox" id="is-recurring" v-model="isRecurring">
           <label for="is-recurring">
-            Make this a monthly recurring contribution?
+            <strong class="text-success">
+              Make this a monthly recurring contribution?
+            </strong>
           </label>
         </div>
 
