@@ -46,7 +46,7 @@
 </style>
 
 <template>
-  <div class="sml-pad-2 med-pad-3 with-border is-rounded fill-grey-dark sml-push-y2 med-push-y3">
+  <div class="sml-pad-2 med-pad-3 with-border is-rounded sml-push-y2 med-push-y3">
     <div v-if="!hasSubmitted">
       <div v-show="!amount">
         <h4>Choose an amount to donate:</h4>
@@ -88,7 +88,7 @@
       </div>
 
       <div v-show="amount">
-        <div class="fill-brand sml-pad-1 sml-pad-x2 is-rounded text-left">
+        <div class="fill-success sml-pad-1 sml-pad-x2 is-rounded text-left">
           <div class="flex-row flex-center">
             <h3>${{ amount }}</h3>
             <div class="text-right">

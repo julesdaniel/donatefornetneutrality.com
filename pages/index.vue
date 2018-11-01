@@ -3,12 +3,10 @@
     <section class="sml-pad-y3 med-pad-y6 fill-top">
       <div class="wrapper">
         <div class="row text-center">
-          <div class="sml-c12 lrg-c10 grid-center">
+          <div class="sml-c12 lrg-c8 grid-center">
             <h1>
               Double Your Donation for Net Neutrality
             </h1>
-          </div> <!-- .c -->
-          <div class="sml-c12 lrg-c8 grid-center">
             <Subheading v-show="testVariant === 'a'" />
             <ProgressBar
               :current-total="currentAmountDonated"
@@ -55,7 +53,7 @@
               who are facing tight races, making them the most likely to listen
               to constituents. Here&rsquo;s what we&rsquo;re raising money to do:
             </p>
-            <div class="fill-grey-dark with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
+            <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
                 <img src="~/assets/images/gradient-calls.png" alt="phone"
                      class="gradient-icon" />
@@ -69,7 +67,7 @@
                 key districts where it matters most.
               </p>
             </div> <!-- fill -->
-            <div class="fill-grey-dark with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
+            <div class="with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
                 <!-- TODO: replace icon -->
                 <img src="~/assets/images/gradient-crowdfund.png" alt="phone"
@@ -84,7 +82,7 @@
                 running ads in digital and print media.
               </p>
             </div> <!-- fill -->
-            <div class="fill-grey-dark with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
+            <div class="with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
                 <!-- TODO: replace icon -->
                 <img src="~/assets/images/gradient-action.png" alt="phone"

@@ -126,14 +126,14 @@ input[type=radio] ~ label {
 .faux-btn input[type=radio]:checked ~ label,
 .faux-btn input[type=radio]:checked ~ label,
 .faux-btn label.faux-selected {
-  background-color: $brand-color;
-  border-color: $brand-color;
+  background-color: $success-color;
+  border-color: $success-color;
   color: $white;
 }
 
 // Forms > Checkboxes & Radios > Faux Button > Text or Number input in a radio
 .faux-btn label.with-input {
-  padding: $gutter/2 $gutter $gutter/2;
+  padding: $gutter/2;
 }
 .faux-btn label.with-input span + input {
   margin-left: $gutter/2;
