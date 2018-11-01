@@ -163,7 +163,51 @@
       </div> <!-- .wrapper -->
     </section>
 
-    <section id="donate" class="sml-pad-y3 med-pad-y6">
+    <section id="store" class="sml-pad-y3 med-pad-y6">
+      <div class="wrapper">
+        <div class="row">
+          <div class="sml-c12 lrg-c8 grid-center text-center">
+            <h2 class="section-title">
+              Get Fight for the Future merch
+            </h2>
+          </div> <!-- .c -->
+        </div> <!-- .row -->
+
+        <div class="row sml-push-y2 med-push-y4">
+          <div class="sml-c6 med-c3">
+            <a href="https://shop.fightforthefuture.org/products/team-internet-hoodie"
+               target="_blank">
+              <img src="~/assets/images/store-hoodie.jpg"
+                   alt="hoodie" class="is-rounded"/>
+            </a>
+          </div> <!-- .c -->
+          <div class="sml-c6 med-c3">
+            <a href="https://shop.fightforthefuture.org/products/sticker-bundle"
+               target="_blank">
+              <img src="~/assets/images/store-sticker-pack.jpg"
+                   alt="sticker pack" class="is-rounded"/>
+            </a>
+          </div> <!-- .c -->
+          <div class="sml-c6 med-c3 sml-push-y2 med-push-y0">
+            <a href="https://shop.fightforthefuture.org/products/fight-for-the-future-t-shirt"
+               target="_blank">
+              <img src="~/assets/images/store-fftf-tshirt.jpg"
+                   alt="FFTF t-shirt" class="is-rounded"/>
+            </a>
+          </div> <!-- .c -->
+          <div class="sml-c6 med-c3 sml-push-y2 med-push-y0">
+            <a href="https://shop.fightforthefuture.org/products/snowden-whistle-while-you-work-t-shirt-1"
+               target="_blank">
+              <img src="~/assets/images/store-snowden-tshirt.jpg"
+                   alt="Whistle While you Work Snowden t-shirt"
+                   class="is-rounded"/>
+            </a>
+          </div> <!-- .c -->
+        </div> <!-- .row -->
+      </div> <!-- .wrapper -->
+    </section>
+
+    <section id="donate" class="sml-pad-y3 med-pad-y6 fill-grey-dark">
       <div class="wrapper">
         <div class="row">
           <div class="sml-c12 lrg-c8 grid-center text-center">
