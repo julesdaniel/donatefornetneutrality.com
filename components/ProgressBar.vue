@@ -5,7 +5,7 @@ $bar-height: $gutter*2;
   position: relative;
   width: 100%;
   height: $bar-height;
-  background: transparentize($white, 0.8);
+  background: transparentize($grey-color, 0.4);
   border-radius: $bar-height;
 }
 .progress .progress-bar {
@@ -15,7 +15,7 @@ $bar-height: $gutter*2;
   left: 0;
   max-width: 100%;
   // max-width: 50%; // Enable if using 2-color bar
-  background: $brand-color;
+  background: $success-color;
   text-indent: 9999em;
 }
 .progress .progress-bar.donations-bar {
