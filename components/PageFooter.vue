@@ -20,7 +20,7 @@
                 </a>
               </li>
               <li class="sml-push-y-half">
-                <a href="https://www.fightforthefuture.org/contact"
+                <a href="https://www.fightforthefuture.org/contact/"
                    target="_blank">
                   Contact
                 </a>
@@ -32,8 +32,7 @@
                 </a>
               </li>
               <li class="sml-push-y-half">
-                <a href="https://donate.fightforthefuture.org/cryptocurrency/"
-                   target="_blank">
+                <a href="/cryptocurrency/">
                   Donate cryptocurrency
                 </a>
               </li>
