@@ -173,7 +173,7 @@
           <input type="hidden" name="business" :value="paypalEmail">
           <input type="hidden" name="cmd" value="_donations">
           <input type="hidden" name="item_name" :value="donationDescription">
-          <input type="hidden" name="item_number" value="">
+          <input type="hidden" name="item_number" :value="paypalItemNumber">
           <input type="hidden" name="currency_code" value="USD">
           <input type="hidden" name="amount" :value="amount">
           <input type="hidden" name="no_shipping" value="1">
@@ -186,7 +186,7 @@
           <input type="hidden" name="business" :value="paypalEmail">
           <input type="hidden" name="item_name" :value="donationDescription">
           <input type="hidden" name="return" :value="paypalReturnUrl">
-          <input type="hidden" name="item_number" value="">
+          <input type="hidden" name="item_number" :value="paypalItemNumber">
           <input type="hidden" name="currency_code" value="USD">
           <input type="hidden" name="no_shipping" value="1">
           <input type="hidden" name="a3" :value="amount">
@@ -268,6 +268,7 @@ export default {
       isSubscribing: true,
       token: null,
       isRecurring: false,
+      paypalItemNumber: null,
       // animation
       tweenedAmount: 0
     }
@@ -296,6 +297,14 @@ export default {
     },
     canRecur() {
       return this.donationAmounts.includes(this.amount)
+    },
+
+    donationTag() {
+      return this.$route.query.tag || this.$store.state.defaultDonationTag
+    },
+
+    donationFrequency() {
+      return this.isRecurring ? 'monthly' : 'once'
     }
   },
 
@@ -454,8 +463,8 @@ export default {
           description: this.$store.state.donationDescription,
           fundraiser_id: this.$store.state.actionNetworkFundraiserId,
           action_network_tags: this.$store.state.actionNetworkTags,
-          donation_tag: this.$route.query.tag || this.$store.state.defaultDonationTag,
-          frequency: this.isRecurring ? 'monthly' : 'once'
+          donation_tag: this.donationTag,
+          frequency: this.donationFrequency
         })
 
         this.hasSubmitted = true
@@ -478,13 +487,34 @@ export default {
       }
     },
 
-    submitPaypalForm() {
+    async createPendingPaypalDonation() {
+      const { data } = await axios.post(`${process.env.PAYMENTS_API_URL}paypal`, {
+        amount: this.amount,
+        name: this.name,
+        donation_tag: this.donationTag,
+        frequency: this.donationFrequency
+      })
+
+      return data
+    },
+
+    async submitPaypalForm() {
       const ref = this.isRecurring ? 'paypalRecurring' : 'paypalOneTime'
       const form = this.$refs[ref]
       this.isSending = true
+
       this.$trackEvent(`${ref}_form`, 'submit')
       pingCounter(`${this.testVariantName}_${ref}_submit_${this.amount}`)
-      form.submit()
+
+      try {
+        const { id } = await this.createPendingPaypalDonation()
+        this.paypalItemNumber = id
+        form.submit()
+      }
+      catch (error) {
+        this.errorMessage = `Couldn't connect to Paypal 🙁`
+        this.isSending = false
+      }
     }
   }
 }
