@@ -507,11 +507,15 @@ export default {
       try {
         const { id } = await this.createPendingPaypalDonation()
         this.paypalItemNumber = id
-        this.$refs[ref].submit()
+
+        // wait for item_number to be populated
+        this.$nextTick(() => {
+          this.$refs[ref].submit()
+        })
       }
       catch (error) {
-        this.errorMessage = `Couldn't connect to Paypal 🙁`
-        this.isSending = false
+        // ignore error and continue with donation
+        this.$refs[ref].submit()
       }
     }
   }
