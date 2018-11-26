@@ -178,7 +178,7 @@
           <input type="hidden" name="amount" :value="amount">
           <input type="hidden" name="no_shipping" value="1">
           <img alt="" border="0" width="1" height="1" src="https://www.paypal.com/en_US/i/scr/pixel.gif">
-          <!-- <input type="hidden" name="return" :value="paypalReturnUrl"> -->
+          <input type="hidden" name="return" :value="paypalReturnUrl">
         </form>
 
         <form class="is-hidden" ref="paypalRecurring" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -499,17 +499,15 @@ export default {
     },
 
     async submitPaypalForm() {
-      const ref = this.isRecurring ? 'paypalRecurring' : 'paypalOneTime'
-      const form = this.$refs[ref]
       this.isSending = true
-
+      const ref = this.isRecurring ? 'paypalRecurring' : 'paypalOneTime'
       this.$trackEvent(`${ref}_form`, 'submit')
       pingCounter(`${this.testVariantName}_${ref}_submit_${this.amount}`)
 
       try {
         const { id } = await this.createPendingPaypalDonation()
         this.paypalItemNumber = id
-        form.submit()
+        this.$refs[ref].submit()
       }
       catch (error) {
         this.errorMessage = `Couldn't connect to Paypal 🙁`
