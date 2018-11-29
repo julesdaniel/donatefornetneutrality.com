@@ -175,31 +175,31 @@
 
         <div class="row sml-push-y2 med-push-y4">
           <div class="sml-c6 med-c3">
-            <a href="https://shop.fightforthefuture.org/products/team-internet-hoodie"
+            <a href="https://shop.fightforthefuture.org/products/still-fighting-for-net-neutrality-hooded-sweatshirt"
                target="_blank">
-              <img src="~/assets/images/store-hoodie.jpg"
-                   alt="hoodie" class="is-rounded"/>
+              <img src="~/assets/images/store-hoodie-80s.jpg"
+                   alt="Still fighting for net neutrality hoodie" class="is-rounded"/>
             </a>
           </div> <!-- .c -->
           <div class="sml-c6 med-c3">
-            <a href="https://shop.fightforthefuture.org/products/sticker-bundle"
+            <a href="https://shop.fightforthefuture.org/products/keep-the-internet-weird-t-shirt"
                target="_blank">
-              <img src="~/assets/images/store-sticker-pack.jpg"
-                   alt="sticker pack" class="is-rounded"/>
+              <img src="~/assets/images/store-tshirt-weird.jpg"
+                   alt="Keep the internet weird t-shirt" class="is-rounded"/>
             </a>
           </div> <!-- .c -->
           <div class="sml-c6 med-c3 sml-push-y2 med-push-y0">
-            <a href="https://shop.fightforthefuture.org/products/fight-for-the-future-t-shirt"
+            <a href="https://shop.fightforthefuture.org/products/still-fighting-for-net-neutrality-t-shirt"
                target="_blank">
-              <img src="~/assets/images/store-fftf-tshirt.jpg"
-                   alt="FFTF t-shirt" class="is-rounded"/>
+              <img src="~/assets/images/store-tshirt-80s.jpg"
+                   alt="Still fighting for net neutrality t-shirt" class="is-rounded"/>
             </a>
           </div> <!-- .c -->
           <div class="sml-c6 med-c3 sml-push-y2 med-push-y0">
-            <a href="https://shop.fightforthefuture.org/products/snowden-whistle-while-you-work-t-shirt-1"
+            <a href="https://shop.fightforthefuture.org/products/urgent-hoodie"
                target="_blank">
-              <img src="~/assets/images/store-snowden-tshirt.jpg"
-                   alt="Whistle While you Work Snowden t-shirt"
+              <img src="~/assets/images/store-hoodie-urgent.jpg"
+                   alt="Urgent hoodie"
                    class="is-rounded"/>
             </a>
           </div> <!-- .c -->
