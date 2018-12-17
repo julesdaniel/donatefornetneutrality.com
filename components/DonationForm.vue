@@ -307,6 +307,10 @@ export default {
       return this.isRecurring ? 'monthly' : 'once'
     },
 
+    testName() {
+      return this.$route.query.email_subject ? 'email_subject' : null
+    },
+
     testOption() {
       return this.$route.query.email_subject || null
     }
@@ -469,6 +473,7 @@ export default {
           action_network_tags: this.$store.state.actionNetworkTags,
           donation_tag: this.donationTag,
           frequency: this.donationFrequency,
+          test_name: this.testName,
           test_option: this.testOption
         })
 
@@ -498,6 +503,7 @@ export default {
         name: this.name,
         donation_tag: this.donationTag,
         frequency: this.donationFrequency,
+        test_name: this.testName,
         test_option: this.testOption
       })
 
