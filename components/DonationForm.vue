@@ -305,6 +305,10 @@ export default {
 
     donationFrequency() {
       return this.isRecurring ? 'monthly' : 'once'
+    },
+
+    testOption() {
+      return this.$route.query.email_subject || null
     }
   },
 
@@ -464,7 +468,8 @@ export default {
           fundraiser_id: this.$store.state.actionNetworkFundraiserId,
           action_network_tags: this.$store.state.actionNetworkTags,
           donation_tag: this.donationTag,
-          frequency: this.donationFrequency
+          frequency: this.donationFrequency,
+          test_option: this.testOption
         })
 
         this.hasSubmitted = true
@@ -492,7 +497,8 @@ export default {
         amount: this.amount,
         name: this.name,
         donation_tag: this.donationTag,
-        frequency: this.donationFrequency
+        frequency: this.donationFrequency,
+        test_option: this.testOption
       })
 
       return data
