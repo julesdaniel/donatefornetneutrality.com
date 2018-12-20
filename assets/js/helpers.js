@@ -61,7 +61,7 @@ export function postFormData(url, data={}) {
 
 // POST form data to Mothership
 export function sendToMothership(data={}, submission={}) {
-  return postFormData('https://queue.fightforthefuture.org/action', data)
+  return postFormData('https://queue.fftf.xyz/action', data)
 }
 
 //  POST to BFTN counter, accepts a string
@@ -69,7 +69,7 @@ export async function pingCounter(counter) {
   const axios = require('axios')
 
   try {
-    await axios.post(`https://counter.battleforthenet.com/ping/${counter}`)
+    await axios.post(`https://counter.fftf.xyz/ping/${counter}`)
   }
   catch (error) {
     //
@@ -177,7 +177,7 @@ export async function geocodeState() {
   }
 
   try {
-    const response = await axios.get('https://fftf-geocoder.herokuapp.com')
+    const response = await axios.get('https://geocode-ip.fftf.xyz')
     const geo = response.data
 
     if (
