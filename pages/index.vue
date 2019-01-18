@@ -46,12 +46,10 @@
               The FCC killed net neutrality, giving companies like Comcast and
               Verizon the power to control what we see and do online with
               throttling, censorship, and expensive new fees. But Congress can
-              still reverse that decision using the Congressional Review Act
-              (CRA). The Senate already passed a resolution, but now the House
-              is running out of time to do the same. We&rsquo;re focusing all of
-              our energy on <a href="https://www.votefornetneutrality.com/#key-races">key lawmakers</a>
-              who are facing tight races, making them the most likely to listen
-              to constituents. Here&rsquo;s what we&rsquo;re raising money to do:
+              bring it back.  We need our lawmakers to reject fake legislation 
+              pushed by telecom lobbyists and fight for real net neutrality that 
+              protects the public against throttling, censorship, and unfair fees. 
+              With your help, here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
