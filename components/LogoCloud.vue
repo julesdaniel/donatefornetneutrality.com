@@ -22,8 +22,8 @@
 <template>
   <div>
     <div class="logos">
-      <div class="fill-white is-rounded sml-pad-1 flex-center" v-for="logo in logos" :key="logo.image">
-        <img :src="logo.image" :alt="logo.name">
+      <div class="fill-white is-rounded sml-pad-1" v-for="logo in logos" :key="logo.image">
+        <img :src="logo.image" :alt="logo.name" class="grid-center">
       </div>
     </div>
   </div>

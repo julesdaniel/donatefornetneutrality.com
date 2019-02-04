@@ -2,23 +2,20 @@ import Vuex from 'vuex'
 import config from '~/config'
 
 const createStore = () => {
+  // allow stripe key to be set by env var (useful in dev)
+  if (process.env.STRIPE_API_KEY) {
+    config.donate.stripePublicKey = process.env.STRIPE_API_KEY
+  }
+
   return new Vuex.Store({
     state: {
       actionNetworkFundraiserId: config.actionNetworkFundraiserId,
       currentAmountDonated: config.currentAmountDonated,
       donationGoal: config.donationGoal,
-      donationAmounts: config.donationAmounts,
-      defaultDonation: config.defaultDonation,
-      donationDescription: config.donationDescription,
-      defaultDonationTag: config.defaultDonationTag,
-      actionNetworkTags: config.actionNetworkTags,
-      showAltPaymentMethods: config.showAltPaymentMethods,
-      paypalEmail: config.paypalEmail,
-      paypalReturnUrl: config.paypalReturnUrl,
+      donate: config.donate,
       modalVisible: false,
       modalType: null,
-      testVariant: null,
-      hasAlreadyDonated: false
+      testVariant: null
     },
     mutations: {
       setModalVisibility(state, value) {
@@ -31,10 +28,6 @@ const createStore = () => {
 
       setTestVariant(state, value) {
         state.testVariant = value
-      },
-
-      setHasAlreadyDonated(state, value) {
-        state.hasAlreadyDonated = value
       },
 
       addDonationAmount(state, amount) {

@@ -46,13 +46,13 @@
               The FCC killed net neutrality, giving companies like Comcast and
               Verizon the power to control what we see and do online with
               throttling, censorship, and expensive new fees. But Congress can
-              bring it back.  We need our lawmakers to reject fake legislation 
-              pushed by telecom lobbyists and fight for real net neutrality that 
-              protects the public against throttling, censorship, and unfair fees. 
+              bring it back.  We need our lawmakers to reject fake legislation
+              pushed by telecom lobbyists and fight for real net neutrality that
+              protects the public against throttling, censorship, and unfair fees.
               With your help, here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
-              <h4 class="flex-center">
+              <h4 class="flex-grid flex-auto flex-center">
                 <img src="~/assets/images/gradient-calls.png" alt="phone"
                      class="gradient-icon" />
                 <span class="sml-pad-x2">
@@ -66,7 +66,7 @@
               </p>
             </div> <!-- fill -->
             <div class="with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
-              <h4 class="flex-center">
+              <h4 class="flex-grid flex-auto flex-center">
                 <!-- TODO: replace icon -->
                 <img src="~/assets/images/gradient-crowdfund.png" alt="phone"
                      class="gradient-icon" />
@@ -81,7 +81,7 @@
               </p>
             </div> <!-- fill -->
             <div class="with-border is-rounded sml-push-y2 sml-pad-2 med-pad-3">
-              <h4 class="flex-center">
+              <h4 class="flex-grid flex-auto flex-center">
                 <!-- TODO: replace icon -->
                 <img src="~/assets/images/gradient-action.png" alt="phone"
                      class="gradient-icon" />

@@ -14,15 +14,13 @@
     padding-right: $gutter*2;
   }
 }
+body.full-width .wrapper {
+  max-width: none;
+}
 .row {
   margin-left:  -$gutter;
   margin-right: -$gutter;
   overflow: hidden;
-
-  @include respond-to(med) {
-    margin-left:  -$gutter*2;
-    margin-right: -$gutter*2;
-  }
 }
 .row:before, .row:after {
   content: '';
@@ -41,11 +39,6 @@
     padding-left:  $gutter;
     padding-right: $gutter;
     min-height: 1px;
-
-    @include respond-to(med) {
-      padding-left:  $gutter*2;
-      padding-right: $gutter*2;
-    }
   }
 }
 @for $i from 1 through 11 {
@@ -144,54 +137,77 @@
 
 // Flexbox Grid
 
-.flex-center {
+.flex-grid {
   display: flex;
+}
+.flex-grid > * {
+  flex: 1;
+}
+.flex-grid.flex-auto > * {
+  flex: inherit;
+}
+.flex-center {
   align-items: center;
   justify-content: center;
   height: 100%;
 }
-.flex-row {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-}
-.flex-row > * {
-  flex: 1;
-  margin-right: $gutter*2;
-  min-width: 0;
-}
-.flex-row > *:last-child {
-  margin-right: 0;
-}
 .sml-flex-col {
   flex-direction: column;
 }
-.med-flex-row {
+
+@mixin flex-row($content) {
+  @include respond-to($content) {
+    .#{$content}-flex-row {
+      flex-direction: row;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+    .#{$content}-flex-row > * {
+      margin-right: $gutter;
+      min-width: 0;
+    }
+    .#{$content}-flex-row > *:last-child {
+      margin-right: 0;
+    }
+    @for $i from 1 through 4 {
+      .#{$content}-flex-#{$i} {
+        flex: $i;
+      }
+    }
+  }
+}
+@include flex-row(sml)
+@include flex-row(med)
+@include flex-row(lrg)
+
+.flex-fixed-height {
+  flex-grow: 0;
+}
+
+// Visibility
+
+.sml-hide {
+  @include respond-to(sml) {
+    display: none;
+  }
+}
+.med-hide {
   @include respond-to(med) {
-    flex-direction: row;
+    display: none;
   }
 }
-.lrg-flex-row {
+.lrg-hide {
   @include respond-to(lrg) {
-    flex-direction: row;
+    display: none;
   }
 }
-@for $i from 1 through 4 {
-  .sml-flex-#{$i} {
-    flex: $i;
+.med-show {
+  @include respond-to(med) {
+    display: block;
   }
 }
-@include respond-to(med) {
-  @for $i from 1 through 4 {
-    .med-flex-#{$i} {
-      flex: $i;
-    }
-  }
-}
-@include respond-to(lrg) {
-  @for $i from 1 through 4 {
-    .lrg-flex-#{$i} {
-      flex: $i;
-    }
+.lrg-show {
+  @include respond-to(lrg) {
+    display: block;
   }
 }

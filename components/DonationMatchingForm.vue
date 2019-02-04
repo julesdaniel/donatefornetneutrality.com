@@ -8,15 +8,15 @@
     <form @submit.prevent="submitForm()" v-if="!hasSubmitted"
           class="sml-push-y2 med-push-y3">
       <p class="text-warn" v-if="errorMessage">{{ errorMessage }}</p>
-      <div class="flex-row sml-push-y2">
+      <div class="flex-grid sml-flex-row sml-push-y2">
         <input v-model="name" type="text" placeholder="Name*" required>
         <input v-model="email" type="email" placeholder="Email*" required>
-      </div> <!-- .flex-row -->
-      <div class="flex-row sml-push-y2">
+      </div> <!-- .flex-grid -->
+      <div class="flex-grid sml-flex-row sml-push-y2">
         <input v-model="org" type="text" placeholder="Organization Name*"
                class="sml-flex-4" required>
         <input v-model="phone" type="tel" placeholder="Phone">
-      </div> <!-- .flex-row -->
+      </div> <!-- .flex-grid -->
 
       <button class="btn btn-block sml-push-y2" :disabled="isSending">
         <span v-if="isSending">

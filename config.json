@@ -10,11 +10,16 @@
   "actionNetworkFundraiserId": "fd77a71e-86fb-4942-a3d8-f7046481bf26",
   "currentAmountDonated": 12500,
   "donationGoal": 100000,
-  "donationAmounts": [3, 10, 30, 50, 75, 100, 250],
-  "defaultDonation": 10,
-  "donationDescription": "Donation for Net Neutrality",
-  "actionNetworkTags": ["net-neutrality", "donor"],
-  "defaultDonationTag": "dfnn",
-  "paypalEmail": "fftfinaction@gmail.com",
-  "paypalReturnUrl": "https://www.donatefornetneutrality.com/thanks/"
+  "donate": {
+    "amounts": [3, 10, 30, 50, 75, 100, 250],
+    "monthlyAmounts": [3, 5, 10, 15, 20, 25, 30, 35, 50, 75, 100, 250, 500, 1000],
+    "defaultAmount": 10,
+    "description": "Donation for Net Neutrality",
+    "actionNetworkTags": ["net-neutrality", "donor"],
+    "defaultTag": "dfnn",
+    "paypalEmail": "fftfinaction@gmail.com",
+    "paypalReturnUrl": "https://www.donatefornetneutrality.com/?step=thanks",
+    "stripePublicKey": "pk_live_EafGxYVfzZHJF4aUSVUJ94e0",
+    "recaptchaPublicKey": "6LdrtFgUAAAAAIJT1yCDCFBu_bQNpCt8E1bfFyfG"
+  }
 }

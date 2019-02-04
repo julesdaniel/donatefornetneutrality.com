@@ -55,7 +55,7 @@
 </style>
 
 <template>
-  <div class="quotes-wrapper flex-row flex-center">
+  <div class="quotes-wrapper flex-grid sml-flex-row flex-center">
     <a class="arrow" @click.prevent="prev">
       <img src="~assets/images/arrow-left.svg" alt="Previous" class="grid-center"/>
     </a>

@@ -31,7 +31,7 @@ module.exports = {
   */
   env: {
     STRIPE_API_KEY: process.env.STRIPE_API_KEY || 'pk_test_KTyxkJ94nvaBujtk0VsUqZAN',
-    PAYMENTS_API_URL: process.env.PAYMENTS_API_URL || 'https://payments-dev.fftf.xyz/'
+    PAYMENTS_API_URL: process.env.PAYMENTS_API_URL || 'https://payments.fftf.xyz/'
   },
   /*
   ** Router configuration
