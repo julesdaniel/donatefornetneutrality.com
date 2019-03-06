@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              Double Your Donation for Net Neutrality
+              Our New Chance to Restore Net Neutrality
             </h1>
             <Subheading v-show="testVariant === 'a'" />
             <ProgressBar
