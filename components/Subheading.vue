@@ -4,7 +4,9 @@
     Since Ajit Pai's FCC gutted net neutrality rules, ISPs have been throttling Internet speeds for
     users everywhere. But an important lawsuit could force the FCC to reinstate net neutrality 
     protections. The ruling will be delievered any day, and we need to be prepared to fight big cable
-    companies regardless of the outcome. <br><strong>Donate now and our Internet champions will match every 
-    dollar.</strong>
+    companies regardless of the outcome.
+  </p>
+  <p>
+    <strong>Donate now and our Internet champions will match every dollar.</strong>
   </p>
 </template>
