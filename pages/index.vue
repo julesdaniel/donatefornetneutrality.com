@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              A new legal ruling could save Net Neutrality
+              A New Legal Ruling Could Save Net Neutrality
             </h1>
             <Subheading v-show="testVariant === 'a'" />
             <ProgressBar
@@ -43,13 +43,18 @@
           <div class="sml-c12 lrg-c8 grid-center text-center">
             <h2 class="section-title">Here&rsquo;s the plan</h2>
             <p class="sml-push-y2 med-push-y3">
-              The FCC killed net neutrality, giving companies like Comcast and
-              Verizon the power to control what we see and do online with
-              throttling, censorship, and expensive new fees. But Congress can
-              bring it back.  We need our lawmakers to reject fake legislation 
-              pushed by telecom lobbyists and fight for real net neutrality that 
-              protects the public against throttling, censorship, and unfair fees. 
-              With your help, here&rsquo;s what we'll do:
+              A new report shows that ISPs like Verizon, AT&T and T-Mobile have 
+              been throttling traffic 
+              <a href="https://www.bloomberg.com/news/articles/2019-08-19/wireless-carrier-throttling-of-online-video-is-pervasive-study" target="_blank">
+              pretty much everywhere all the time</a>. Because the FCC gutted net
+              neutrality, these companies won't be punished for this outragious, 
+              anti-consumer behvior. But an 
+              <a href="https://gizmodo.com/fcc-faces-off-in-net-neutrality-lawsuit-against-consume-1832269448" target="_blank">
+              important lawsuit</a> could force the FCC to reinstate net neutrality,
+              and the court's ruling is expected any day now. Even if we win, telecom 
+              lobbyists are waiting in the wings to push bad for legislation.  We need 
+              to be ready to fight the minute the case is settled. With your help, 
+              here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
@@ -75,7 +80,7 @@
                 </span>
               </h4>
               <p class="sml-push-y2">
-                As politicians in key districts are hearing from outraged voters,
+                As politicians in key districts are hearing from voters,
                 we&rsquo;ll turn up the pressure by putting up billboards and
                 running ads in digital and print media.
               </p>
