@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              Our New Chance to Restore Net Neutrality
+              A new legal ruling could save Net Neutrality
             </h1>
             <Subheading v-show="testVariant === 'a'" />
             <ProgressBar
