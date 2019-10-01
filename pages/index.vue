@@ -8,11 +8,13 @@
               The Fight for Net Neutrality Is Back On
             </h1>
             <p class="sml-push-y2 med-push-y3">             
-              A bombshell court decision just reignited the fight for net neutrality. Lobbyists for 
-              big cable companies are already swarming Congress to push bad legislation that will allow 
-              ISPs to continue throttling Internet speeds and imposing unfair fees. But we have a strategy 
-              to fight them in DC and at the state level and restore net neutrality once and for all. 
-              <strong>Donate now and our Internet champions will match every dollar.</strong>
+              A bombshell court decision just reignited the fight for net neutrality. While 
+              the courts did not reinstate open Internet protections, they did leave us with 
+              a very clear path: the FCC cannot stop state or federal legislation. Cable 
+              company lobbyists are already swarming Congress to push bad legislation that 
+              will allow them to continue throttling Internet speeds and imposing unfair fees. 
+              <strong>Donate now and our Internet champions will match every dollar in our 
+              effort to restore net neutrality once and for all.</strong>           
             </p>
             <ProgressBar
               :current-total="currentAmountDonated"
