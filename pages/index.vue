@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              A New Legal Ruling Could Save Net Neutrality
+              The Fight for Net Neutrality Is Back On
             </h1>
             <p class="sml-push-y2 med-push-y3">
               A bombshell court decision has shifted the fight for net neutrality to the state level.  Lobbyists
