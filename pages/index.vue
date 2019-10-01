@@ -43,17 +43,17 @@
           <div class="sml-c12 lrg-c8 grid-center text-center">
             <h2 class="section-title">Here&rsquo;s the plan</h2>
             <p class="sml-push-y2 med-push-y3">
-              A new report shows that ISPs like Verizon, AT&T and T-Mobile have 
-              been throttling traffic 
+              Ever since the FCC repealed net neutrality, ISPs like Verizon, AT&T and 
+              T-Mobile have been 
               <a href="https://www.bloomberg.com/news/articles/2019-08-19/wireless-carrier-throttling-of-online-video-is-pervasive-study" target="_blank">
-              pretty much everywhere all the time</a>. Because the FCC gutted net
-              neutrality, these companies won't be punished for this outragious, 
-              anti-consumer behvior. But an 
-              <a href="https://gizmodo.com/fcc-faces-off-in-net-neutrality-lawsuit-against-consume-1832269448" target="_blank">
-              important lawsuit</a> could force the FCC to reinstate net neutrality,
-              and the court's ruling is expected any day now. Even if we win, telecom 
-              lobbyists are waiting in the wings to push bad for legislation.  We need 
-              to be ready to fight the minute the case is settled. With your help, 
+              throttling traffic</a> "pretty much everywhere all the time." But a federal court has 
+              <a href="https://thehill.com/policy/technology/463805-appeals-court-upholds-net-neutrality-repeal-but-rules-fcc-cant-block-state" target="_blank">
+              ruled</a> that the FCC can't legally stop individual states from creating their own
+              net neutrality legislation.
+              <a href="http://www.ncsl.org/research/telecommunications-and-information-technology/net-neutrality-legislation-in-states.aspx" target="_blank">
+              Nearly every state</a> is battling to enact such laws, but big cable lobbyists 
+              are working overtime to kill these state-level bills while pushing for bad
+              legislation at the national level. But so are we. With your help, 
               here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
