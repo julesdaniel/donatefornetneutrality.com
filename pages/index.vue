@@ -158,11 +158,11 @@
               Don&rsquo;t take our word for it
             </h2>
             <p class="sml-push-y2 med-push-y3">
-              The loss of net neutrality has already begun to have a real-world
-              impact on the lives of people across America. Businesses have
-              suffered. Veterans have been ignored. And first responders have
-              had their safety put at risk in the absence of a free and open
-              internet. Here&rsquo;s what some of them have to say:
+              The loss of net neutrality has had a real-world impact on the 
+              lives of people across America. Businesses have suffered. Veterans 
+              have been ignored. And first responders have been put at risk in 
+              the absence of a free and openinternet. Here&rsquo;s what some of 
+              them have to say:
             </p>
             <QuoteScroller class="sml-push-y2"/>
           </div> <!-- .c -->
