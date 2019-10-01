@@ -8,10 +8,12 @@
               The Fight for Net Neutrality Is Back On
             </h1>
             <p class="sml-push-y2 med-push-y3">
-              A bombshell court decision has shifted the fight for net neutrality to the state level.  Lobbyists
-              for big cable companies are already swarming Congress in an effort to introduce bad legislation that
-              will prevent states like California, Georgia, and Kentucky from enacting their own Internet protections.
-              But we're fighting back. <strong>Donate now and our Internet champions will match every dollar.</strong>
+              A bombshell court decision has reignited the fight for net neutrality. Lobbyists for 
+              big cable companies are already swarming Congress in an effort to introduce bad 
+              legislation that will allow ISPs like Verizon, Comcast, and AT&T to continue 
+              throttling Internet speeds and imposing unfair fees. But with your help, we can make 
+              Congress pass the bipartisan Save the Internet Act. <strong>Donate now and our Internet 
+              champions will match every dollar.</strong>
             </p>
             <ProgressBar
               :current-total="currentAmountDonated"
@@ -52,13 +54,10 @@
               <a href="https://www.bloomberg.com/news/articles/2019-08-19/wireless-carrier-throttling-of-online-video-is-pervasive-study" target="_blank">
               throttling traffic</a> "pretty much everywhere all the time." But a federal court has
               <a href="https://thehill.com/policy/technology/463805-appeals-court-upholds-net-neutrality-repeal-but-rules-fcc-cant-block-state" target="_blank">
-              ruled</a> that the FCC can't legally stop individual states from creating their own
-              net neutrality legislation.
-              <a href="http://www.ncsl.org/research/telecommunications-and-information-technology/net-neutrality-legislation-in-states.aspx" target="_blank">
-              Nearly every state</a> is battling to enact such laws, but big cable lobbyists
-              are working overtime to kill these state-level bills while pushing for bad
-              legislation at the national level. But so are we. With your help,
-              here&rsquo;s what we'll do:
+              ruled</a> that the FCC's policy doesn't prevent net neutrality laws at the state
+              or national level. Big cable lobbyists are working overtime to push for bad
+              legislation, but we can stop them by forcing Congress to pass the bipartisan 
+              Save the Internet Act. With your help, here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
