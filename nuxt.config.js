@@ -1,3 +1,5 @@
+const RECAPTCHA_PUBLIC_KEY = "6LdrtFgUAAAAAIJT1yCDCFBu_bQNpCt8E1bfFyfG"
+
 module.exports = {
   /*
   ** Headers of the page
@@ -11,6 +13,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_PUBLIC_KEY}` }
     ]
   },
   css: [
@@ -31,7 +36,8 @@ module.exports = {
   */
   env: {
     STRIPE_API_KEY: process.env.STRIPE_API_KEY || 'pk_test_KTyxkJ94nvaBujtk0VsUqZAN',
-    PAYMENTS_API_URL: process.env.PAYMENTS_API_URL || 'https://payments-dev.fftf.xyz/'
+    PAYMENTS_API_URL: process.env.PAYMENTS_API_URL || 'https://payments-dev.fftf.xyz/',
+    RECAPTCHA_PUBLIC_KEY: RECAPTCHA_PUBLIC_KEY
   },
   /*
   ** Router configuration

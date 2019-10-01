@@ -149,8 +149,11 @@
             <span v-if="isSending">
               Processing...
             </span>
+            <span v-else-if="confirmationCode">
+              Yes, I want to donate again
+            </span>
             <span v-else>
-              Submit Donation
+              Submit
             </span>
           </button>
 
@@ -256,6 +259,7 @@ export default {
 
   data() {
     return {
+      confirmationCode: null,
       isSending: false,
       hasSubmitted: false,
       errorMessage: null,
@@ -460,8 +464,22 @@ export default {
       this.isSending = false
     },
 
+    async getReCaptchaToken() {
+      return new Promise(resolve => {
+        window.grecaptcha.ready(() => {
+          grecaptcha
+            .execute(process.env.RECAPTCHA_PUBLIC_KEY, {
+              action: 'stripeDonation'
+            })
+            .then(resolve)
+        })
+      })
+    },
+
     async createStripeCharge(token) {
       try {
+        const reCaptchaToken = await this.getReCaptchaToken()
+
         const { data } = await axios.post(`${process.env.PAYMENTS_API_URL}stripe`, {
           amount: this.stripeAmount,
           token: token.id,
@@ -474,10 +492,13 @@ export default {
           donation_tag: this.donationTag,
           frequency: this.donationFrequency,
           test_name: this.testName,
-          test_option: this.testOption
+          test_option: this.testOption,
+          confirmation_code: this.confirmationCode,
+          recaptcha_token: reCaptchaToken
         })
 
         this.hasSubmitted = true
+        this.confirmationCode = null
         this.addDonationAmount(this.amount)
 
         this.$trackEvent('stripe_donation', 'success', this.stripeAmount)
@@ -485,9 +506,14 @@ export default {
       }
       catch (error) {
         let errorMessage
+        const { response } = error
 
-        if (error.response && error.response.data && error.response.data.error) {
-          errorMessage = error.response.data.error
+        if (response && response.data && response.data.error) {
+          errorMessage = response.data.error
+
+          if (response.data.confirmation_code) {
+            this.confirmationCode = response.data.confirmation_code
+          }
         }
         else {
           errorMessage = "Couldn't connect to payment processor"
