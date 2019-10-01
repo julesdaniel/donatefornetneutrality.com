@@ -7,13 +7,12 @@
             <h1>
               The Fight for Net Neutrality Is Back On
             </h1>
-            <p class="sml-push-y2 med-push-y3">
-              A bombshell court decision has reignited the fight for net neutrality. Lobbyists for 
-              big cable companies are already swarming Congress in an effort to introduce bad 
-              legislation that will allow ISPs like Verizon, Comcast, and AT&T to continue 
-              throttling Internet speeds and imposing unfair fees. But with your help, we can make 
-              Congress pass the bipartisan Save the Internet Act. <strong>Donate now and our Internet 
-              champions will match every dollar.</strong>
+            <p class="sml-push-y2 med-push-y3">             
+              A bombshell court decision just reignited the fight for net neutrality. Lobbyists for 
+              big cable companies are already swarming Congress to push bad legislation that will allow 
+              ISPs to continue throttling Internet speeds and imposing unfair fees. But we have a strategy 
+              to fight them in DC and at the state level and restore net neutrality once and for all. 
+              <strong>Donate now and our Internet champions will match every dollar.</strong>
             </p>
             <ProgressBar
               :current-total="currentAmountDonated"
