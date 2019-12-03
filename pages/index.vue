@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              The Fight for Net Neutrality Is Back On
+              Save the Internet
             </h1>
             <p class="sml-push-y2 med-push-y3">             
               A bombshell court decision 
@@ -64,7 +64,8 @@
               ruled</a> that the FCC's policy doesn't prevent net neutrality laws at the state
               or national level. Big cable lobbyists are working overtime to push for bad
               legislation, but we can stop them by forcing Congress to pass the bipartisan 
-              Save the Internet Act. With your help, here&rsquo;s what we'll do:
+              <a href="https://www.congress.gov/bill/116th-congress/house-bill/1644/text" target="_blank">
+              Save the Internet Act</a>. With your help, here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
