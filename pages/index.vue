@@ -5,7 +5,7 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              Save the Internet
+              Double Your Donation to Save the Internet
             </h1>
             <p class="sml-push-y2 med-push-y3">             
               A bombshell court decision 
@@ -62,8 +62,8 @@
               throttling traffic</a> "pretty much everywhere all the time." But a federal court has
               <a href="https://thehill.com/policy/technology/463805-appeals-court-upholds-net-neutrality-repeal-but-rules-fcc-cant-block-state" target="_blank">
               ruled</a> that the FCC's policy doesn't prevent net neutrality laws at the state
-              or national level. Big cable lobbyists are working overtime to push for bad
-              legislation, but we can stop them by forcing Congress to pass the bipartisan 
+              or national level. Big cable lobbyists are pushing for bad legislation, but we can 
+              stop them by forcing Congress to pass the bipartisan 
               <a href="https://www.congress.gov/bill/116th-congress/house-bill/1644/text" target="_blank">
               Save the Internet Act</a>. With your help, here&rsquo;s what we'll do:
             </p>
