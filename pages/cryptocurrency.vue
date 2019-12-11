@@ -127,19 +127,8 @@ export default {
     }
   },
 
-  async asyncData() {
-    let currencies = []
-    try {
-      const { data } = await axios.get('https://data.battleforthenet.com/crypto/fftf.json')
-
-      currencies = data
-    }
-    catch (error) {
-      //
-    }
-    return {
-      currencies: currencies
-    }
+  computed: {
+    currencies: () => config.cryptocurrencies
   },
 
   methods: {
