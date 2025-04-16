@@ -5,14 +5,20 @@
         <div class="row text-center">
           <div class="sml-c12 lrg-c8 grid-center">
             <h1>
-              The Fight for Net Neutrality Is Back On
+              Double Your Donation to Save the Internet
             </h1>
             <p class="sml-push-y2 med-push-y3">             
-              A bombshell court decision just reignited the fight for net neutrality. While 
-              the courts did not reinstate open Internet protections, they did leave us with 
-              a very clear path: the FCC cannot stop state or federal legislation. Cable 
-              company lobbyists are already swarming Congress to push bad legislation that 
-              will allow them to continue throttling Internet speeds and imposing unfair fees. 
+              A bombshell court decision 
+              <a href="https://www.cnet.com/news/net-neutrality-court-ruling-states-can-set-own-rules/" target="_blank">
+              ruled</a> that federal and state lawmakers have the power to create net neutrality
+              laws. Cable company lobbyists are already swarming Congress to push bad legislation 
+              that will allow them to continue 
+              <a href="https://news.northeastern.edu/2018/09/10/new-research-shows-your-internet-provider-is-in-control/" target="_blank">
+              throttling</a> Internet speeds,
+              <a href="https://arstechnica.com/tech-policy/2018/12/centurylink-blocks-internet-access-falsely-claims-state-law-required-it/" target="_blank">
+              blocking</a> access, and 
+              <a href="https://www.theverge.com/2018/6/28/17507322/best-unlimited-data-plans-verizon-att-tmobile-sprint" target="_blank">
+              charging</a> unfair fees. 
               <strong>Donate now and our Internet champions will match every dollar in our 
               effort to restore net neutrality once and for all.</strong>           
             </p>
@@ -56,9 +62,10 @@
               throttling traffic</a> "pretty much everywhere all the time." But a federal court has
               <a href="https://thehill.com/policy/technology/463805-appeals-court-upholds-net-neutrality-repeal-but-rules-fcc-cant-block-state" target="_blank">
               ruled</a> that the FCC's policy doesn't prevent net neutrality laws at the state
-              or national level. Big cable lobbyists are working overtime to push for bad
-              legislation, but we can stop them by forcing Congress to pass the bipartisan 
-              Save the Internet Act. With your help, here&rsquo;s what we'll do:
+              or national level. Big cable lobbyists are pushing for bad legislation, but we can 
+              stop them by forcing Congress to pass the bipartisan 
+              <a href="https://www.congress.gov/bill/116th-congress/house-bill/1644/text" target="_blank">
+              Save the Internet Act</a>. With your help, here&rsquo;s what we'll do:
             </p>
             <div class="with-border is-rounded sml-push-y2 med-push-y3 sml-pad-2 med-pad-3">
               <h4 class="flex-center">
